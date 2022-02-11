@@ -1,0 +1,12 @@
+Please read this carefully
+
+
+
+Every html design components should be in this directory like when you 
+write some html for creating a card and make it as a copy like duplicate separte file
+ with some valid name with it and comments also ( like which pages card you are creating )
+
+
+Make necessary comments for other team members to understand
+
+Thank You

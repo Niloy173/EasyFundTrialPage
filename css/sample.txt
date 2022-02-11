@@ -1,0 +1,7 @@
+Please read this carefully
+
+
+When you design any components like card , navbar, footer , any kind of design
+make a seperate css file for each of the component here in this directory
+
+Thank You
