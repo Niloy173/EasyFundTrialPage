@@ -1,2 +1,0 @@
-In this root folder only main pages like section wise link redirection
-pages should be included like home,about,how it works
