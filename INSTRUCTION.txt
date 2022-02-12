@@ -1,0 +1,30 @@
+In this root folder only main pages like section wise link redirection
+pages should be included like home,about,how it works
+
+
+
+
+
+github push -
+
+
+step 1 : git add .
+step 2 : git commit -m "relevant message or specific component"
+step 3 : git push origin main . If any error try this  => (git push -f origin main )
+
+
+
+github pull -
+
+First if you want any team members code to re-check or analyze
+
+then use this => git pull origin main
+
+
+But If you want to work on the final result then use this 
+command to get the code on your local device
+
+git pull origin master
+
+
+
