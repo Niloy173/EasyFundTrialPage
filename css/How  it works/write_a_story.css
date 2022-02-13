@@ -70,10 +70,17 @@
 
  
 }
+
+.right_side ul{
+
+  list-style-position: outside;
+
+}
 .right_side li{
 
   margin: 20px 0;
   font-size: 17px;
+  
   
  
 }
