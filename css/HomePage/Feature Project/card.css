@@ -1,5 +1,13 @@
 body {
   margin: 0;
+<<<<<<< HEAD
+=======
+}
+
+p{
+
+  padding: 2px 10px;
+>>>>>>> 9179c546ae9ae06791c131688c95747f7bb75173
 }
 
 .card-list {

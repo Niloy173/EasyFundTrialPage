@@ -10,5 +10,70 @@
   margin: 30px auto;
   width: 50%;
   
+}
+
+.startup h3{
+
+  text-align: center;
+  margin: 20px 0;
+  font-size: 25px;
+}
+
+.startup p{
+
+  font-size: 20px;
+  text-align: justify;
+}
+
+.cover-image{
+
+  display: flex;
+  justify-content: center;
+  margin: 30px auto;
+
+}
+
+
+.important_points{
+
+  display: flex;
+  margin-top: 30px;
+}
+
+.important_points .left_side{
+
+  flex: 50%;
+  margin-left: 20px;
+}
+.left_side h4{
+
+  font-size: 20px;
+  margin: 10px 0;
+  padding: 10px 2px;
+
+}
+.left_side li{
+
+  margin: 10px 0;
+  padding: 2px ;
+  font-size: 17px;
+}
+.important_points .right_side{
+  flex: 50%;
+  margin-left: 20px;
+}
+.right_side h4{
+
+  font-size: 20px;
+  margin: 10px 0;
+  padding: 10px 2px;
+
+ 
+}
+.right_side li{
+
+  margin: 20px 0;
+  font-size: 17px;
   
+ 
 }
