@@ -1,0 +1,116 @@
+<!--
+
+  Work section : General Settings
+  Specific category : First Page of Creating project
+  Date : 14/2/2022
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>General Settings | Easy Fund</title>
+
+  <link rel="stylesheet" href="../../css/Starting_Project/General_secttings.css"/>
+</head>
+<body>
+
+
+  
+
+    <div class="child">
+
+      <h3> How much do you need ?</h3>
+
+      <div class="important_notice">
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, aspernatur! 
+          Omnis molestiae possimus impedit eos beatae aut expedita delectus autem.</p>
+      </div>
+
+      <div class="amount-section">
+
+        <div class="left-side">
+
+          <h4 class="type">৳ <label>(BDT)</label> </h4> 
+        </div>
+        <div class="right-side">
+
+          <h4 id="amount" class="taka">1300 </h4> 
+        </div>
+       
+      
+      </div>
+
+      <p style="margin: 2px 25px; font-size: 17px;"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis, totam.</p>
+ 
+     <div class="main-section">
+
+      <p class="input_type">Deadline</p>
+      <input type="date" class="input-box" />
+
+      <p class="input_type">Category</p>
+      <input type="text" placeholder="Choose your category" id="category_box"  class="input-box2"/><i style="text-align: end;" class="arrow down"></i></button> 
+     
+      
+      <div id="myDropdown" class="dropdown-content">
+        <a onclick="GetValue('Medical')" class="property" href="#">Medical</a>
+        <a onclick="GetValue('Education')"  class="property" href="#">Education</a>
+        <a onclick="GetValue('Family')"  class="property" href="#">Family</a>
+      </div>
+
+      <button class="next-page">Next</button>
+
+      <p class="terms"> By creating a project, the user agrees with Airtripp's and Airfunding's 
+        <label class="policy">Terms of Use and Privacy Policy</label>.</p>
+     </div>
+    </div>
+
+
+
+    <div id="money" class="amount-input">
+      <input type="number" min="100" max="1500" placeholder="Write Your Amount Here" id="amount-data" />
+      <button id="btn-click">ok</button>
+    </div>
+
+    <script>
+
+      document.getElementById("category_box").addEventListener("click",function(){
+
+        document.getElementById("myDropdown").style.display = "block"
+
+      });
+
+      function GetValue(val)
+      {
+        
+        document.getElementById("category_box").value = val;
+        document.getElementById("myDropdown").style.display = "none";
+      }
+
+        document.getElementById("amount").addEventListener("click",function(){
+
+        document.getElementById("money").style.display = "block";
+
+       
+      })
+
+      document.getElementById("btn-click").addEventListener("click",function(){
+
+        let amount = document.getElementById("amount-data").value;
+        amount = amount > 1500 || amount.toString().length == 0 || amount < 100  ? "100":amount;
+
+        document.getElementById("amount").innerHTML = amount;
+        document.getElementById("money").style.display = "none";
+      })
+    </script>
+  
+
+  
+  
+</body>
+</html>
