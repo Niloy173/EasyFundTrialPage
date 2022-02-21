@@ -1,0 +1,192 @@
+*{
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.child{
+
+  position: relative;
+  width: 500px;
+  margin: 80px auto;
+  padding: 50px auto;
+}
+
+.child .head{
+
+  font-size: 20px;
+  text-align: center;
+  word-spacing: 3px;
+}
+
+.important_notice{
+  background-color: #f2f2f2;
+  opacity: 0.6;
+  margin: 15px 0;
+
+  
+}
+
+.short-note{
+
+  background-color: #f2f2f2;
+  opacity: 0.6;
+  margin: 15px 0 10px 0;
+
+}
+
+.important-paragraph{
+
+  padding: 12px 16px;
+  font-size: 14px;
+  text-align: justify;
+}
+
+.important-msg{
+
+  display: flex;
+  justify-content: end;
+  padding-bottom: 20px;
+  color: black;
+  font-weight: bold;
+  margin: 0 20px;
+
+
+}
+
+.title-field{
+
+  margin: 10px 0;
+
+}
+
+.sub_head{
+
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 0;
+}
+.title-field input{
+
+  width: 100%;
+  padding: 16px 20px;
+  font-size: 18px;
+  border: 1px solid black;
+}
+
+.story-field{
+
+  margin: 10px 0;
+}
+.line{
+
+  border-bottom: 4px solid #000;
+  display: block;
+}
+
+.txt-area{
+
+  resize: none;
+  overflow: hidden;
+  width: 100%;
+  height: 500px;
+  padding: 20px 20px;
+  font-size: 16px;
+  text-align: justify;
+  border: 1px solid #ccc;
+  color: black;
+}
+
+
+figure{
+
+  width: 100%;
+  padding: 12px 0;
+}
+.uploaded_img{
+
+  width: 100%;
+  height: 300px; /* temporary */
+  border: 1px solid black;
+}
+
+
+
+.vertical-line{
+
+  border-left: 3px solid black;
+  width: 1px;
+  display: block;
+  height: 50px;
+  margin: 0 10px;
+}
+
+
+.category{
+
+  border: 2px solid #ccc;
+  display: flex;
+}
+
+.category span{
+
+  margin: 10px 12px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+
+.msg p{
+
+  margin: 10px 12px;
+}
+
+
+
+.displayImage{
+
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+  
+
+}
+
+.bold{
+
+  font-weight: bold;
+}
+
+
+.next-page button{
+
+  width: 100%;
+  padding: 20px 16px;
+  margin: 20px 0 0 0;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(87, 235, 185);
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.next-page button:hover{
+
+  opacity: 0.7;
+}
+
+.back-page button{
+
+  width: 100%;
+  background-color: #f2f2f2;
+  opacity: 0.6;
+  text-transform: uppercase;
+  font-size: 16px;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: none;
+}

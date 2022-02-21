@@ -118,6 +118,11 @@
   cursor: pointer;
 }
 
+.next-page:hover{
+
+  opacity: 0.8;
+}
+
 .main-section .terms{
 
   padding: 10px 0;
