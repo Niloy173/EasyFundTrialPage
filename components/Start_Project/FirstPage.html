@@ -40,7 +40,7 @@
         </div>
         <div class="right-side">
 
-          <h4 id="amount" class="taka">1300 </h4> 
+          <h4 id="amount" class="taka">100 </h4> 
         </div>
        
       
@@ -51,7 +51,7 @@
      <div class="main-section">
 
       <p class="input_type">Deadline</p>
-      <input type="date" class="input-box" />
+      <input id="date" type="date" class="input-box" />
 
       <p class="input_type">Category</p>
       <input type="text" placeholder="Choose your category" id="category_box"  class="input-box2"/><i style="text-align: end;" class="arrow down"></i></button> 
@@ -63,7 +63,7 @@
         <a onclick="GetValue('Family')"  class="property" href="#">Family</a>
       </div>
 
-      <button class="next-page">Next</button>
+      <button id="next-page" class="next-page">Next</button>
 
       <p class="terms"> By creating a project, the user agrees with Airtripp's and Airfunding's 
         <label class="policy">Terms of Use and Privacy Policy</label>.</p>
@@ -77,37 +77,7 @@
       <button id="btn-click">ok</button>
     </div>
 
-    <script>
-
-      document.getElementById("category_box").addEventListener("click",function(){
-
-        document.getElementById("myDropdown").style.display = "block"
-
-      });
-
-      function GetValue(val)
-      {
-        
-        document.getElementById("category_box").value = val;
-        document.getElementById("myDropdown").style.display = "none";
-      }
-
-        document.getElementById("amount").addEventListener("click",function(){
-
-        document.getElementById("money").style.display = "block";
-
-       
-      })
-
-      document.getElementById("btn-click").addEventListener("click",function(){
-
-        let amount = document.getElementById("amount-data").value;
-        amount = amount > 1500 || amount.toString().length == 0 || amount < 100  ? "100":amount;
-
-        document.getElementById("amount").innerHTML = amount;
-        document.getElementById("money").style.display = "none";
-      })
-    </script>
+    <script src="../../Javascript/startProject/generalsettings.js"> </script>
   
 
   

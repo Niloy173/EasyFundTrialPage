@@ -47,7 +47,7 @@
       <div class="back-page">
         <button>Back</button>
       </div>
-      <div class="next-page">
+      <div id="next_page" class="next-page">
         <button>Next</button>
       </div>
     </div>
@@ -56,39 +56,7 @@
   </div>
 
 
-  <script>
-
-    const img_input = document.getElementById("file");
-   
-    let upload_image;
-
-    window.addEventListener('load',function(){
-
-
-      img_input.addEventListener('change',function(){
-
-        
-
-        if(this.files && this.files[0])
-        {
-          var img = document.querySelector('#display_img');
-
-          img.onload = () =>{
-
-            URL.revokeObjectURL(img.src);
-          }
-
-          // to print the specific file name
-          // console.log(this.files[0].name) 
-
-          img.src = URL.createObjectURL(this.files[0]);
-          
-        }
-      });
-    });
-
-
-  </script>
+  <script src="../../Javascript/startProject/takingpicture.js"></script>
   
 </body>
 </html>
