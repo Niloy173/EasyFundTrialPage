@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/Starting_Project/writeStory.css" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+
+  <div class="child">
+
+    <p class="head"> Write your own story </p>
+
+
+    <div class="important_notice">
+
+       <p class="important-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Ea quas voluptas neque numquam reprehenderit est. Lorem 
+          ipsum dolor sit amet consectetur adipisicing elit. Rerum, exercitationem?</p>
+          
+          <a class="important-msg" href="#"">Tips to write a good story</a>
+    </div>
+
+
+    <div class="title-field">
+
+      <p class="sub_head">Title</p>
+      <input type="text" placeholder="write title" id="title" />
+      <div id="error-msg" style="display: none;"></div>
+
+    </div>
+
+    <div class="short-note">
+
+      <p class="important-paragraph"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat,
+         maxime saepe ipsum laudantium necessitatibus suscipit!</p>
+
+
+         <a class="important-msg" href="#"">How to write a good story ?</a>
+    </div>
+
+    <div class="story-field">
+
+      <p class="sub_head">Story</p>
+      
+      <div class="line"></div>
+
+      <div class="category">
+
+        <span id="bold"  title="Bold important word" class="material-icons">
+          format_bold
+          </span>
+
+          <div class="vertical-line"></div>
+
+          <input accept="image/jpg, image/png, image/jpeg" id="file-input" onchange="preview()"  type="file" style="display: none;" multiple >
+          <label   for="file-input"><span  title="add image" class="material-icons">
+            image
+            </span></label>
+
+        <div class="vertical-line"></div>
+
+          <span  title="tips" class="material-icons">
+            help
+            </span>
+        <div class="vertical-line"></div>
+
+         <span id="link" title="createLink" class="material-icons">
+              link
+        </span>
+
+
+      </div>
+
+
+      <div contenteditable="true" id="content" class="txt-area" > 
+      </div>
+
+
+      <div class="next-page">
+        <button id="next">next</button>
+      </div>
+
+      <div class="back-page">
+        <button>back</button>
+      </div>
+
+    
+    </div>
+
+
+ 
+
+
+
+
+
+
+
+  <script src="../../Javascript/startProject/writestory.js"></script>
+  
+</body>
+</html>
