@@ -4,9 +4,6 @@
  var image_file_name = [];
 
  // getting reuired id or catch elements
-
- 
- 
  const create_link = document.getElementById("link");
  const text_bold = document.getElementById("bold"); // for Bolding text
  const file_input = document.getElementById("file-input"); // for selecting multiple files like .jpeg .jpg .png
