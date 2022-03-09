@@ -120,3 +120,14 @@ function preview()
 }
 
 
+function GoToPreviewPage()
+{
+
+}
+
+
+function BackToCoverPage()
+{
+  location.href = "../../components/Start_Project/SecondPage.html";
+   
+}

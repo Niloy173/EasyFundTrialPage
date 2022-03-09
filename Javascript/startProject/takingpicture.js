@@ -46,3 +46,15 @@ next_page.addEventListener("click",function(){
     alert("Selected Image : "+cover_image);
    }
 })
+
+function NextPage()
+{
+  location.href = "../../components/Start_Project/WriteStory.html";
+   
+}
+
+function Previous()
+{
+  location.href = "../../components/Start_Project/SecondPage.html";
+   
+}
