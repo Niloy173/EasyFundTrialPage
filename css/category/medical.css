@@ -1,0 +1,41 @@
+*{
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.medical_content{
+
+  background-color: #f2f2f2;
+  margin: 80px auto;
+  
+ 
+}
+
+.document_head{
+
+   width:  1000px;
+   margin: 0px auto;
+   padding: 80px 0;
+}
+
+.document_head h2{
+
+  font-weight: bold;
+  font-size: 28px;
+  padding-bottom: 20px;
+}
+.document_head p{
+
+  padding-bottom: 25px;
+  font-size: 17px;
+  color: rgb(95, 95, 95);
+}
+.document_head button{
+
+  padding: 12px 18px;
+  font-size: 20px;
+  background-color: rgb(5, 161, 161);
+  color: aliceblue;
+}

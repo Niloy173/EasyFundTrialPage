@@ -12,8 +12,20 @@ body {
   justify-content: center;
 }
 
-.card-container p{
-  padding-left: 2%;
+.card-container .subject{
+  padding: 0 5px;
+  text-align: justify;
+}
+
+.card-container .amount_section{
+
+  margin-bottom: 0;
+  border: 1px solid black;
+  padding: 8px 0;
+  background-color: teal;
+  color: aliceblue;
+  font-size: 17px;
+  text-align: center;
 }
 .card-container {
 
