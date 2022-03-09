@@ -1,4 +1,3 @@
-
 <!--
 
   Work section : Select a picture
@@ -6,57 +5,53 @@
   Date : 18/2/2022
 -->
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Select a Pcture | Easy Fund</title>
-  <link rel="stylesheet"  href="../../css/Starting_Project/taking_picture.css"/>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Select a Pcture | Easy Fund</title>
+    <link
+      rel="stylesheet"
+      href="../../css/Starting_Project/taking_picture.css"
+    />
+  </head>
+  <body>
+    <div class="child">
+      <p class="head">Select a Cover Picture</p>
 
-  <div class="child">
-
-    <p class="head">Select a Cover Picture</p>
-
-
-    <div class="important_notice">
-
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, aspernatur! 
-        Omnis molestiae possimus impedit eos beatae aut expedita delectus autem.</p>
-    </div>
-
-    <div class="image-container">
-      <img  id="display_img" src="../../images/Creating project/SecondPage/blank_img.jpg" alt="blank_image"/>
-    </div>
-
-    <div class="select-image">
-
-      <input type="file"  accept="images/*" id="file"  />
-      <label id="img-input" for="file"> Choose a picture</label>
-
-    </div>
-
-    <div class="page-section">
-
-      <div class="back-page">
-        <button>Back</button>
+      <div class="important_notice">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit,
+          aspernatur! Omnis molestiae possimus impedit eos beatae aut expedita
+          delectus autem.
+        </p>
       </div>
-      <div id="next_page" class="next-page">
-        <button>Next</button>
+
+      <div class="image-container">
+        <img
+          id="display_img"
+          src="../../images/Creating project/SecondPage/blank_img.jpg"
+          alt="blank_image"
+        />
+      </div>
+
+      <div class="select-image">
+        <input type="file" accept="images/*" id="file" />
+        <label id="img-input" for="file"> Choose a picture</label>
+      </div>
+
+      <div class="page-section">
+        <div class="back-page">
+          <button onclick="previous()">Back</button>
+        </div>
+        <div id="next_page" class="next-page">
+          <button onclick="NextPage()">Next</button>
+        </div>
       </div>
     </div>
 
-   
-  </div>
-
-
-  <script src="../../Javascript/startProject/takingpicture.js"></script>
-  
-</body>
+    <script src="../../Javascript/startProject/takingpicture.js"></script>
+  </body>
 </html>
