@@ -23,7 +23,7 @@ function createElement(tag,className)
   return obj;
 }
 
-let parentDivMedical = document.getElementById("parent")
+let parentDivMedical = document.getElementById("card-list")
 
 
 
@@ -68,6 +68,14 @@ for(let i=0;i<9;i++)
     childContainer.appendChild(subject);
     childContainer.appendChild(categoryDiv);
     childContainer.appendChild(amountDiv);
+
+    
+    // DEMO PURPOSE
+          childContainer.onclick = function()
+        {
+          location.href = "/UserEnd/userstorypage.html";
+        }
+    
 
     parentDivMedical.append(childContainer);
 }
