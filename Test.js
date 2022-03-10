@@ -9,7 +9,7 @@
 */
 
 
-let SelectedCardCoverImage = `/images/HomePage/Feature Project/demo1.jpg`;
+let SelectedCardCoverImage = `./images/HomePage/Feature Project/demo1.jpg`;
 let SelectedCardSubject = ` Help Us To Raise This Child With Eductaion and Care By Giving a Small
 Contribution.`;
 let Category = `Medical`; // for example
