@@ -73,7 +73,7 @@ for(let i=0;i<9;i++)
     // DEMO PURPOSE
           childContainer.onclick = function()
         {
-          location.href = "/UserEnd/userstorypage.html";
+          location.href = "./UserEnd/userstorypage.html";
         }
     
 
