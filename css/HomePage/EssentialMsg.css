@@ -1,90 +1,70 @@
-*{
-
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.Important_msg_container{ /* this css file will be edited later */
+.Important_msg_container {
+  /* this css file will be edited later */
 
   margin: 30px 0;
   background-color: #f2f2f2;
-  padding : 30px 0;
-
-
+  padding: 30px 0;
 }
 
-.first_container{
-
-   position: relative;
-   margin: 50px auto;
-   padding: 50px auto;
-   width: 70%;
-   display: flex;
-   flex-wrap: wrap;
-
-}
-
-.second_container{
-
+.first_container_ {
   position: relative;
-   margin: 50px auto;
-   padding: 50px auto ;
-   width: 70%;
-   display: flex;
-   flex-wrap: wrap;
+  margin: 50px auto;
+  padding: 50px auto;
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
+.second_container_ {
+  position: relative;
+  margin: 50px auto;
+  padding: 50px auto;
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+}
 
-.small-section{
-
+.small-section {
   margin: 30px 0;
   padding: 30px 0;
   text-align: center;
- 
 }
-.E_left-side{
-
-  flex: 35%;
- 
-}
-
-.E_right-side{
-
+.E_left-side {
   flex: 35%;
 }
 
+.E_right-side {
+  flex: 35%;
+}
 
-.icons{
-
+.icons {
   font-size: 40px;
   margin: 10px;
 }
-.E_head{
-
+.E_head {
   font-size: 20px;
   font-weight: bold;
-  
-  
 }
-.E_unique{
-
+.E_unique {
   list-style-position: outside;
 }
 
-.E_msg{
-
+.E_msg {
   text-align: justify;
   display: block;
   margin: 20px auto;
   padding: 0 20px;
   font-size: 17px;
   word-spacing: 2px;
-
 }
 
-.E_hyperlink{
-
+.E_hyperlink {
   display: flex;
   justify-content: flex-end;
   margin: 0 20px;
@@ -92,26 +72,18 @@
   font-size: 18px;
 }
 
-
-.small-section h2{
-
-   font-weight: bold;
-   color: rgb(0, 161, 161);
-   
-
-
-  
+.small-section h2 {
+  font-weight: bold;
+  color: rgb(0, 161, 161);
 }
-.small-section p{
-
+.small-section p {
   font-size: 22px;
   padding: 15px 0;
   color: #7a7474;
   font-weight: bold;
 }
 
-.small-section button{
-
+.small-section button {
   background-color: rgb(0, 161, 161);
   color: white;
   text-transform: uppercase;
@@ -122,22 +94,17 @@
   border: none;
 }
 
-.project_category{
-  
+.project_category {
   margin: 10px 0;
 }
-.project_category h2{
-
+.project_category h2 {
   text-align: center;
   font-weight: bold;
   padding-bottom: 30px;
   margin-bottom: 10px;
-
-
 }
 
-.identity_row{
-
+.identity_row {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -145,25 +112,17 @@
   margin-bottom: 10px;
 }
 
-.each_category{
-
+.each_category {
   margin: 0 40px;
   text-align: center;
-  
+  cursor: pointer;
 }
-.each_category .d_icons{
-
-  
+.each_category .d_icons {
   padding: 0 10px;
   font-size: 60px;
- 
 }
 
-
-
-.each_category p{
-
-  
+.each_category p {
   font-size: 20px;
   font-weight: bold;
 }
