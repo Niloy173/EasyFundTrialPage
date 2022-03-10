@@ -1,0 +1,89 @@
+.third_container {
+  width: 1200px;
+  margin: 40px auto;
+  padding: 30px 0;
+}
+
+.third_container .head {
+  font-size: 22px;
+  margin-top: 30px;
+  padding-left: 5px;
+}
+
+.first_story {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 30px 0;
+  padding: 0 5px;
+}
+.first_story .story_image {
+  flex: 40%;
+}
+
+.first_story .story_description {
+  flex: 50%;
+  padding: 10px 30px;
+}
+.story_image img {
+  width: 100%;
+  height: 300px;
+}
+.story_description h2 {
+  padding-bottom: 20px;
+  font-size: 26px;
+}
+
+.story_description .story {
+  text-align: justify;
+  font-size: 18px;
+  padding-bottom: 20px;
+  font-style: italic;
+}
+.two_more_story {
+  display: flex;
+}
+
+.two_more_story .first_one_left {
+  flex: 40%;
+  padding: 10px;
+}
+
+.first_one_left p {
+  margin: 20px 0;
+  font-size: 17px;
+  text-align: justify;
+}
+
+.first_one_left a {
+  display: flex;
+  justify-content: right;
+  padding-right: 20px;
+  font-size: 17px;
+  color: #000;
+}
+.two_more_story .second_one_right {
+  flex: 40%;
+  padding: 10px;
+}
+
+.second_one_right p {
+  margin: 20px 0;
+  font-size: 17px;
+  text-align: justify;
+}
+
+.second_one_right a {
+  display: flex;
+  justify-content: right;
+  padding-right: 20px;
+  font-size: 17px;
+  color: #000;
+}
+.first_one_left img {
+  width: 100%;
+  height: 300px;
+}
+.second_one_right img {
+  width: 100%;
+  height: 300px;
+}
