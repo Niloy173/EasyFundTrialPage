@@ -1,3 +1,14 @@
+<!--
+
+  HomePage
+
+  Note : click the medical to get a view as template for each project category
+
+
+
+-->
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,12 +16,417 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HomePage</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/HomePage/navbar.css"/>
+    <link rel="stylesheet" href="./css/HomePage/first_container.css"/>
+    <link rel="stylesheet" href="./css/HomePage/second_container.css"/>
+    <link rel="stylesheet" href="./css/HomePage/third_container.css"/>
+    <link rel="stylesheet" href="./css/HomePage/EssentialMsg.css"/>
+   
   </head>
   <body>
-    <h1>Added by TOWHID</h1>
-    <h1>Pull from master</h1>
+    <nav id="navbar">
+      <div class="logo"><a href="/index.html">EasyFunD</a></div>
+      <!-- <input type="checkbox" id="click" /> -->
+      <label id="show_nav" for="click" class="menu-btn">
+        <i class="fas fa-bars"></i>
+      </label>
 
-    <h1>Added..</h1>
-    <h1>shiki one</h1>
+      <div class="nav_menu_item">
+        <ul>
+          <li>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+              >&times; close</a
+            >
+          </li>
+          <li class="dropdown">
+            <a href="#">How it works</a>
+            <div class="dropdown-content">
+              <a class="content" href="./components/How it works/how_it_works.html"
+                >How it works</a
+              >
+              <a class="content" href="./components/How it works/write_a_story.html"
+                >How to write a story</a
+              >
+
+              <hr />
+              <a class="content" href="./components/How it works/category_tips.html"
+                >Category Tips</a
+              >
+            </div>
+          </li>
+
+          <li><a href="#">Discover project</a></li>
+          <li>
+            <a href="./components/Start_Project/FirstPage.html">Start a project</a>
+          </li>
+          <li id="box_sign">
+            <a href="./registration_login.html">
+              <i class="fas fa-user"></i> Log In
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+
+
+    <div class="first_container">
+     
+      <div class="singleSlide">
+
+        <img src="./images/HomePage/Feature Project/demo1.jpg" alt="canada" style="width: 100%" />
+
+      </div>
+      <div class="singleSlide">
+
+        <img src="./images/HomePage/Feature Project/first_container_pic4.jpg" style="width: 100%;">
+      </div>
+
+
+      <div class="singleSlide fade">
+
+        <img src="./images/HomePage/Feature Project/first_container_pic5.jpg" style="width:100%">
+
+      </div>
+      
+      <div class="top-left_">
+        
+        <p class="para">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem,
+          iste! jjdjdjdjdsw ncjncjdcj soxsjszj sijisjijsixjsij jcjdxdjcjd
+          sjsjnjsn jjnnn jnjnnjn jnjnjn ijiji
+        </p>
+       
+          <a  href="./components/How it works/how_it_works.html"/>
+            Read more </a
+          >
+      
+      </div>
+
+      <div class="top-right_">
+        
+        <h2> Help everyone with everyone </h2>
+        
+
+        <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima laborum expedita iure temporibus alias sit 
+          iusto esse architecto? Vero pariatur consequuntur, maxime voluptate deleniti odio.</p>
+
+        <button>Discover project</button>
+        </div>
+      </div>
+
+  
+
+
+      <div  class="second_container">
+
+        <p class="head" > Feature Projects </p>
+
+        <!--
+          this below card list should be dynamic and that's why we didn't write
+          any html yet but do check out the javascript file Test.js
+        -->
+        <div id="card-list">
+
+        </div>
+      </div>
+
+
+      <!--
+        Successfull stories
+      -->
+      <div class="third_container">
+
+        <p class="head"> Success stories </p>
+
+        <div class="first_story">
+
+          <div class="story_image">
+
+            <img src="./images/HomePage/Feature Project/first_story.jpg" alt="firstStory" />
+
+          </div>
+
+          <div class="story_description">
+
+            <h2> Anne </h2>
+
+            <p class="story"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis autem assumenda consectetur recusandae consequatur, dolorum ex voluptates velit maxime cum molestiae obcaecati. Dicta eius, vel ab nihil quo sit asperiores! Optio provident nisi 
+              corporis doloribus harum, exercitationem cum reiciendis cupiditate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est dolores quasi laborum error impedit nam.</p>
+
+
+            <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, animi?</p>
+
+          </div>
+        </div>
+
+
+        <div class="two_more_story">
+
+          <div class="first_one_left">
+            <img src="./images/HomePage/Feature Project/second_story.jpg" alt="secondstory"/>
+
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut non vero temporibus quo perferendis at aspernatur minima necessitatibus cupiditate? Dicta?</p>
+
+            <a href="#"> Read more </a>
+          </div>
+          <div class="second_one_right">
+            <img src="./images/HomePage/Feature Project/third_story.jpg" alt="thirdstory"/>
+
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut non vero temporibus quo perferendis at aspernatur minima necessitatibus cupiditate? Dicta?</p>
+
+            <a href="#"> Read more </a>
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+      <div class="Important_msg_container">
+
+        <div class="first_container_">
+  
+          <div class="E_left-side">
+  
+            
+  
+              <label class="E_head"> 
+                
+                <span class="material-icons icons">
+                  drive_file_rename_outline
+                  </span>
+                  Project Instruction</label>
+  
+  
+              <p class="E_msg">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas minima suscipit 
+                iusto aspernatur sunt iste et velit qui cum laudantium.Eum iste blanditiis ex accusantium rem fuga mollitia obcaecati quis!
+              </p>
+  
+          </div>
+  
+          <div class="E_right-side">
+  
+  
+            <label class="E_head"> 
+                
+              <span class="material-icons icons">
+                cruelty_free
+                </span>
+                Free for all</label>
+  
+  
+  
+              <p class="E_msg">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas minima suscipit 
+                iusto aspernatur sunt iste et velit qui cum laudantium.Eum iste blanditiis ex accusantium rem fuga mollitia obcaecati quis!
+              </p>
+  
+  
+          </div>
+  
+        </div>
+  
+  
+        <div class="second_container_">
+  
+  
+          <div class="E_left-side">
+  
+            <label class="E_head"> 
+                
+              <span class="material-icons icons">
+                print
+                </span>
+                Receive support anytime</label>
+  
+  
+  
+              <p class="E_msg">
+               
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor excepturi 
+                sapiente perspiciatis debitis quod! Soluta aut officiis praesentium numquam 
+                esse obcaecati eaque animi commodi repudiandae et molestiae magni quae unde pariatur, 
+                suscipit nemo dicta exercitationem maiores totam deleniti fugit architecto.
+  
+              </p>
+  
+              <p class="E_msg">
+  
+                
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos impedit 
+                itaque sed nulla possimus numquam.
+              </p>
+  
+          </div>
+  
+          <div class="E_right-side">
+  
+            <label class="E_head E_unique">
+  
+            <span class="material-icons icons">
+              ballot
+              </span>
+              Create more awareness</label>
+  
+  
+  
+            <p class="E_msg">
+             
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor excepturi 
+              sapiente perspiciatis debitis quod! Soluta aut officiis praesentium numquam 
+              esse obcaecati eaque animi commodi repudiandae et 
+            </p>
+  
+  
+            <a class="E_hyperlink" href="#">How Easy Fund Works ?</a>
+  
+          </div>
+  
+  
+        </div>
+      </div>
+  
+  
+      <div class="small-section">
+  
+       <h2> Easy Fund</h2>
+  
+        <p> Why don't you try to start fundraising too ? </p>
+  
+        <button> create project </button>
+      </div>
+  
+      <div class="project_category">
+  
+        <h2> Discover project by categories </h2>
+  
+        <div class="identity_row">
+  
+          <div onclick="Medical()" class="each_category">
+            <span class="material-icons d_icons">
+              medical_services
+              </span>
+    
+              <p> Medical </p>
+          </div>
+  
+          <div class="each_category">
+            <span class="material-icons d_icons">
+              family_restroom
+              </span>
+    
+              <p> Family </p>
+          </div>
+  
+          <div class="each_category">
+            <span class="material-icons d_icons">
+              school
+              </span>
+    
+              <p> Education </p>
+          </div>
+  
+          <div class="each_category">
+            <span class="material-icons d_icons">
+              forum
+              </span>
+              <p> Community </p>
+          </div>
+  
+        </div>
+        <div class="identity_row">
+  
+          <div class="each_category">
+            <span class="material-icons d_icons">
+              business
+              </span>
+    
+              <p> Business </p>
+          </div>
+  
+          <div class="each_category">
+            <span class="material-icons d_icons">
+              airplane_ticket
+              </span>
+              <p> Study Abroad </p>
+          </div>
+  
+  
+          <div class="each_category">
+            <span class="material-icons d_icons">
+              tornado
+              </span>
+    
+              <p> Disaster </p>
+          </div>
+  
+  
+          <div class="each_category">
+            <span class="material-icons d_icons">
+              dynamic_feed
+              </span>
+    
+              <p> Others </p>
+          </div>
+        </div>
+      </div>
+  
+  
+
+
+
+    
+
+     
+
+
+    <script src="/Test.js"></script>
+    <script src="/projectCategory.js"></script>
+
+    <script>
+
+    var SLideInd = 0;
+    showSlide();
+
+    function showSlide()
+    {
+      var i;
+      var slides_img = document.getElementsByClassName("singleSlide");
+      // var dot_img = document.getElementsByClassName("dot");
+
+      for(i=0;i<slides_img.length;i++)
+      {
+        slides_img[i].style.display = "none";
+      }
+      SLideInd +=1;
+      if (SLideInd > slides_img.length) SLideInd = 1;
+
+      // for(i=0;i<dot_img.length;i++)
+      // {
+      //   dot_img[i].className = dot_img[i].className.replace("active","");
+      // }
+
+      slides_img[SLideInd-1].style.display = "block";
+      // dot_img[SLideInd-1].className += " active";
+      setTimeout(showSlide,3000);
+    }
+    </script>
+
+    
   </body>
 </html>
