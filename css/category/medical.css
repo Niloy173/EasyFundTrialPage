@@ -1,41 +1,114 @@
-*{
-
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.medical_content{
-
+.medical_content {
   background-color: #f2f2f2;
   margin: 80px auto;
-  
- 
 }
 
-.document_head{
-
-   width:  1000px;
-   margin: 0px auto;
-   padding: 80px 0;
+.document_head {
+  width: 1000px;
+  margin: 0px auto;
+  padding: 80px 0;
 }
 
-.document_head h2{
-
+.document_head h2 {
   font-weight: bold;
   font-size: 28px;
   padding-bottom: 20px;
 }
-.document_head p{
-
+.document_head p {
   padding-bottom: 25px;
   font-size: 17px;
   color: rgb(95, 95, 95);
 }
-.document_head button{
-
+.document_head button {
   padding: 12px 18px;
   font-size: 20px;
   background-color: rgb(5, 161, 161);
   color: aliceblue;
+}
+
+.see_more {
+  display: block;
+  margin: 40px auto;
+  background: none;
+  border: 2px solid teal;
+  padding: 12px 20px;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+.how_it_works {
+  background-color: #f2f2f2;
+  margin: 30px 0;
+  padding: 20px 0;
+}
+
+.how_it_works .heading_work {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.work_section {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 0 auto;
+  overflow: hidden;
+  justify-content: center;
+}
+.work_section .column {
+  display: flex;
+  width: 20%;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.column h4 {
+  text-align: justify;
+  font-size: 24px;
+  font-weight: 900;
+  color: rgb(0, 82, 82);
+  padding: 10px 0;
+}
+
+.column h3 {
+  text-align: justify;
+  padding: 5px 0 10px;
+  font-weight: normal;
+  font-size: 22px;
+}
+.column p {
+  text-align: justify;
+  color: #000;
+  font-size: 16px;
+}
+
+.message {
+  width: 100%;
+  margin: 80px auto;
+}
+
+.message p {
+  text-align: center;
+  font-size: 27px;
+}
+
+.message button {
+  display: block;
+  margin: 20px auto;
+  padding: 14px 20px;
+  font-size: 20px;
+  background-color: teal;
+  opacity: 0.6;
+  color: #f2f2f2;
+  font-weight: bold;
+  border-radius: 10px;
 }
