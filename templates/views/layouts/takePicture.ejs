@@ -1,0 +1,62 @@
+<!--
+
+  Work section : Select a picture
+  Specific category : Second Page of Creating project
+  Date : 18/2/2022
+-->
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Select a Pcture | Easy Fund</title>
+    <link rel="stylesheet" href="/css/project/taking_picture.css" />
+  </head>
+  <body>
+    <div class="child">
+      <p class="head">Select a Cover Picture</p>
+
+      <form method="post" enctype="multipart/form-data">
+        <div class="important_notice">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit,
+            aspernatur! Omnis molestiae possimus impedit eos beatae aut expedita
+            delectus autem.
+          </p>
+        </div>
+
+        <div class="image-container">
+          <img
+            id="display_img"
+            src="/img/createproject/blank_img.jpg"
+            alt="blank_image"
+          />
+        </div>
+
+        <div class="select-image">
+          <input
+            type="file"
+            accept="image/jpg, image/png, image/jpeg"
+            id="file"
+            name="avatar"
+          />
+          <label id="img-input" for="file"> Choose a picture</label>
+        </div>
+
+        <div class="page-section">
+          <div class="back-page">
+            <a style="text-decoration: none" href="/GeneralSettings"
+              ><button type="button">Back</button></a
+            >
+          </div>
+          <div id="next_page" class="next-page">
+            <button type="submit">Next</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script src="/js/createproject/takingpicture.js"></script>
+  </body>
+</html>

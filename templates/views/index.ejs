@@ -1,0 +1,29 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="/css/homepage/first_container.css" />
+    <link rel="stylesheet" href="/css/homepage/second_container.css" />
+  </head>
+  <body>
+    <%- include('../partials/navbar.ejs') %> <%-
+    include('../partials/banner.ejs') %>
+
+    <div class="second_container">
+      <p class="head">Feature Projects</p>
+
+      <!--
+    this below card list should be dynamic and that's why we didn't write
+    any html yet but do check out the javascript file Test.js
+  -->
+      <div id="card-list"></div>
+    </div>
+
+    <script src="/js/homepage/Homepage.js"></script>
+    <script src="/js/homepage/FeatureProject.js"></script>
+  </body>
+</html>
