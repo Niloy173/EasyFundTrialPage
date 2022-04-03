@@ -72,8 +72,8 @@ app.use('/',HomeRoute);
 app.use('/Homepage',HomeRoute);
 app.use('/DiscoverProjects',discoverProject); 
 app.use('/GeneralSettings',generalsettings.router);
-app.use('/layouts/TakingPicture',takingPicture);
-app.use('/layouts/WriteStory',writingStory);
+app.use('/layouts/TakingPicture',takingPicture.router);
+app.use('/layouts/WriteStory',writingStory.router);
 app.use('/layouts/PreviewStory',previewStory);
 
 /********************************** */

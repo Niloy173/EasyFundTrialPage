@@ -22,7 +22,10 @@ let generalInfo = {};
 router.route('/')
   .get((req,res)=>{
 
-    
+    // console.log(req.get('accept'));
+    // console.log(req.baseUrl);
+    // console.log(req.path);
+    // console.log(req.originalUrl)
 
     
     // req.accepts('json');
@@ -86,11 +89,12 @@ router.route('/')
 
 
     
+    
 
    
     
     
-     res.redirect("layouts/TakingPicture");
+     res.redirect("/layouts/TakingPicture");
     
 
 
@@ -106,4 +110,5 @@ module.exports = {
 
   router,
   generalInfo,
+
 };

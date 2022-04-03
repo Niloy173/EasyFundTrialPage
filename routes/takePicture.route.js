@@ -1,12 +1,16 @@
 const express = require('express');
-
 const router = express.Router();
 const _ = require('../Helpers/ImageValidate');
+
+
 
 
 router.route('/')
   .get((req,res)=>{
 
+   
+    //console.log(req.route);
+    // console.log(req.app.get("view engine"));
     // console.log(`Requwsted url => `+req.baseUrl);
     // console.log(`Requwsted url => `+req.originalUrl);
     // console.log(`Requwsted path => `+req.path);
@@ -16,11 +20,23 @@ router.route('/')
 
   .post(_.upload.single("avatar"),(req,res)=>{
 
+
+     
+     if(req.file === undefined)
+     {
+       const message = "Please Select a Cover picture";
+        res.render("layouts/takePicture",{
+
+          message
+        });
+     }
     
     // res.status(200).json({
 
     //   Info : req.file
     // })
+ 
+   
      res.redirect("/layouts/WriteStory");
   })
 
@@ -43,4 +59,10 @@ router.route('/')
     }
   });
 
-module.exports = router;
+
+module.exports = {
+
+  router,
+  
+  
+};

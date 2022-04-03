@@ -3,15 +3,15 @@ const multer = require("multer");
 const path = require('path');
 const fs = require('fs');
 
-const UPLAOD_FOLDER = path.join(__dirname+"/../"+'/Picture/')
+const UPLAOD_FOLDER = path.join(__dirname+"/../"+'/public/Image/Picture/')
 
-let filename;
+
 
 
 function check()
 {
-  fs.readdir(UPLAOD_FOLDER, (err, files,cb) => {
-    if (err) cb(new Error("Folder Error "))
+  fs.readdir(UPLAOD_FOLDER, (err, files) => {
+   
   
     for (const file of files) {
       fs.unlink(path.join(UPLAOD_FOLDER, file), (err,cb) => {
@@ -55,7 +55,7 @@ var upload = multer({
   storage : storage,
   limits : {
 
-    fileSize : 5000000,
+    fileSize : 50000000,
   },
   fileFilter : (req,file,cb) =>{
 
@@ -84,7 +84,7 @@ var upload = multer({
 module.exports = {
 
   upload,
-
+  check,
 
   
 }

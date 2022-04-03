@@ -1,6 +1,8 @@
 * {
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 
 .dashboard {
@@ -14,13 +16,6 @@
   font-size: 20px;
   color: #f2f2f2;
   font-weight: bold;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
 }
 
 .user_story_page {
@@ -224,4 +219,42 @@
   background-color: rgb(211, 55, 211);
   font-weight: bold;
   cursor: pointer;
+}
+
+.button_container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.button_container hr {
+  margin: 1rem 0 0 0;
+}
+.button_container .flex_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  background-color: #f2f2f2;
+}
+.flex_container .right_btn_complete {
+  width: 50%;
+}
+.flex_container .left_btn_back {
+  width: 30%;
+}
+.right_btn_complete button {
+  width: 100%;
+  background-color: rgb(0, 188, 188);
+  color: #f2f2f2;
+  font-weight: bold;
+  padding: 10px 0;
+  border: none;
+  border-radius: 8px;
+}
+.left_btn_back button {
+  width: 100%;
+  background: none;
+  border: none;
 }

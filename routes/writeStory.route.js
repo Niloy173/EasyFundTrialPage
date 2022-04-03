@@ -1,14 +1,23 @@
 const exprees = require('express');
+const url = require('url');
 const { check,  validationResult} = require('express-validator')
 const bodyParser = require('body-parser');
 const router = exprees.Router();
 
 
+const {generalInfo} = require('./general.route');
+
+
+var Title_story = "";
+
+
 
 const body = bodyParser.urlencoded({extended:false});
 
+
 router.route('/')
   .get((req,res)=>{
+
 
     res.render("layouts/writeStory");
   })
@@ -43,8 +52,32 @@ router.route('/')
       //   Data : req.body,
       // })
 
-      res.redirect("layouts/previewPage");
-    }
-  })
+      Title_story = req.body.Title;
 
-module.exports = router;
+   
+
+
+      
+      // res.redirect("/layouts/PreviewStory");
+      res.redirect(url.format({
+
+        pathname : "/layouts/PreviewStory",
+        
+        query : {
+
+          "StoryTitle" : Title_story,
+          "Amount" : generalInfo.Amount,
+         "Validity": generalInfo.ProjectDuartion,
+
+         
+        }
+      }));
+    }
+  });
+
+
+
+module.exports = {
+  router,
+  
+}
