@@ -117,11 +117,15 @@
 .each_category {
   margin: 0 40px;
   text-align: center;
-  cursor: pointer;
 }
 .each_category .d_icons {
   padding: 0 10px;
   font-size: 60px;
+}
+
+.each_category a {
+  text-decoration: none;
+  color: #000;
 }
 
 .each_category p {

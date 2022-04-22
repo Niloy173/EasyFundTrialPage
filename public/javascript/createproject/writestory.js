@@ -17,7 +17,13 @@
  content.innerHTML = "write your story"
 
  //inital localstorage
- 
+ localStorage.setItem("Story","");
+
+
+ document.getElementById("next").addEventListener("click",function(){
+
+  localStorage.setItem("Story",content.innerHTML);
+ })
 
  
 

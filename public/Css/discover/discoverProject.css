@@ -61,6 +61,11 @@
   padding-bottom: 20px;
 }
 
+.Summery a {
+  text-decoration: none;
+  color: #000;
+}
+
 .project_btn {
   padding: 15px 30px;
   font-size: 20px;

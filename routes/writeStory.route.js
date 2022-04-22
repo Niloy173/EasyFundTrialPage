@@ -3,7 +3,7 @@ const url = require('url');
 const { check,  validationResult} = require('express-validator')
 const bodyParser = require('body-parser');
 const router = exprees.Router();
-
+const {checkAuthenticated} = require('../Helpers/Information');
 
 const {generalInfo} = require('./general.route');
 
@@ -16,7 +16,7 @@ const body = bodyParser.urlencoded({extended:false});
 
 
 router.route('/')
-  .get((req,res)=>{
+  .get(checkAuthenticated,(req,res)=>{
 
 
     res.render("layouts/writeStory");
@@ -68,6 +68,7 @@ router.route('/')
           "StoryTitle" : Title_story,
           "Amount" : generalInfo.Amount,
          "Validity": generalInfo.ProjectDuartion,
+         "Category": generalInfo.Category,
 
          
         }

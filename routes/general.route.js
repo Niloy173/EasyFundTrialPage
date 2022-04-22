@@ -1,9 +1,10 @@
 // dependencies
 const express = require('express');
-const session = require('express-session');
+const cookieParser = require('cookie-parser');
 const { check,  validationResult} = require('express-validator')
 const bodyParser = require('body-parser');
 const GetDays = require('../Helpers/GetDays');
+const {checkAuthenticated} = require('../Helpers/Information');
 
 
 
@@ -15,12 +16,28 @@ const router = express.Router();
 const body = bodyParser.urlencoded({extended:true});
 
 
+router.use(express.json())
+router.use(cookieParser());
+
 // module scaffolding
 let generalInfo = {};
 
 
+// Creating a middleware where any one
+// click or go to "General" section this
+// function auyomatically called
+
+// const log = (req,res,next)=>{
+
+//   console.log(`This is General Information section`);
+//   next();
+// }
+
+// router.use("*",log);
+
+
 router.route('/')
-  .get((req,res)=>{
+  .get(checkAuthenticated,(req,res)=>{
 
     // console.log(req.get('accept'));
     // console.log(req.baseUrl);

@@ -7,7 +7,6 @@ const UPLAOD_FOLDER = path.join(__dirname+"/../"+'/public/Image/Picture/')
 
 
 
-
 function check()
 {
   fs.readdir(UPLAOD_FOLDER, (err, files) => {
@@ -34,6 +33,7 @@ let storage = multer.diskStorage({
 
   filename :(req,file,cb)=>{
 
+    
     let file_ext = path.extname(file.originalname);
      filename = file.originalname
                       .replace(file_ext,"")
@@ -55,7 +55,7 @@ var upload = multer({
   storage : storage,
   limits : {
 
-    fileSize : 50000000,
+    fileSize : 5000000,
   },
   fileFilter : (req,file,cb) =>{
 
@@ -80,11 +80,9 @@ var upload = multer({
 
 
 
-
 module.exports = {
 
   upload,
   check,
-
   
 }

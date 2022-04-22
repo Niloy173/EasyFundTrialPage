@@ -43,13 +43,13 @@
 }
 
 .caption_of_story {
-  width: 100%;
+  width: 650px;
   text-align: justify;
   margin: 30px 0;
 }
 .caption_of_story p {
   font-size: 24px;
-  word-spacing: 3px;
+  /* word-spacing: 0.5px; */
 }
 
 .story_teller {

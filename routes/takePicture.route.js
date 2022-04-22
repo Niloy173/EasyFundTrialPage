@@ -1,14 +1,22 @@
 const express = require('express');
+const multer = require('multer');
 const router = express.Router();
 const _ = require('../Helpers/ImageValidate');
+const {checkAuthenticated} = require('../Helpers/Information');
+
+
+var  message;
+
 
 
 
 
 router.route('/')
-  .get((req,res)=>{
+  .get(checkAuthenticated,(req,res)=>{
 
    
+    // console.log(req.get('accept'))
+    
     //console.log(req.route);
     // console.log(req.app.get("view engine"));
     // console.log(`Requwsted url => `+req.baseUrl);
@@ -24,7 +32,7 @@ router.route('/')
      
      if(req.file === undefined)
      {
-       const message = "Please Select a Cover picture";
+       message = "Please Select a Cover picture";
         res.render("layouts/takePicture",{
 
           message
@@ -41,8 +49,7 @@ router.route('/')
   })
 
   
-  express()
-  .use((req,res,err,next)=>{
+  const ErrorHandler = (err,req,res,next)=>{
 
 
     if(err)
@@ -50,14 +57,19 @@ router.route('/')
       if(err instanceof multer.MulterError)
       {
          
-        res.status(500).send(err.message)
+        res.status(500).send(err.message);
+  
       }else{
-
-        res.status(500).send(err.message)
-
+  
+       res.status(500).send(err.message);
       }
     }
-  });
+  
+  }
+  
+  router.use(ErrorHandler);
+  
+  
 
 
 module.exports = {
