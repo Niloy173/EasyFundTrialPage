@@ -1,53 +1,57 @@
 const express = require('express');
-const cookieParser = require('cookie-parser');
 const router = express.Router();
-
-
+const {Project} = require('../db/usefulInfo')
 
 
 router.use(express.json());
-router.use(cookieParser());
-
-//google Auth Here
-const {OAuth2Client} = require('google-auth-library');
-const CLIENT_ID = '996077912258-17f6mjq59eejfc8esl4fug367s92uo41.apps.googleusercontent.com';
-const client = new OAuth2Client(CLIENT_ID);
 
 
-function checkAuthenticated(req, res, next){
 
-  let token = req.cookies['session-token'];
-  // console.log(token)
+ function GetData(req,res,next)
+{
+   Project.find({})
+     
+      .select({})
+      .limit(8)
+      .exec((err,data)=>{
+  
+        if(err){
+          res.status(500).json({
+            error : "There was an error in your request"
+          });
+          
+        }else{
 
-  let user = {};
-  async function verify() {
-      const ticket = await client.verifyIdToken({
-          idToken: token,
-          audience: CLIENT_ID,  // Specify the CLIENT_ID of the app that accesses the backend
-      });
-      const payload = ticket.getPayload();
-      user.name = payload.name;
-      user.email = payload.email;
-      user.picture = payload.picture;
-      //console.log(user)
-    }
-    verify()
-    .then(()=>{
-        req.user = user;
-        next();
-    })
-    .catch(err=>{
-      // console.log(err)
-       res.render("index");
-    })
+          /* now we'll check if user authenticated  or not */
+          /* if authenticated then render user page otherwise homepage */
+
+           if(!req.user)
+           {
+            res.render("index",{
+
+            
+              data
+            });
+          
+
+           }else{
+
+            res.redirect("/userend")
+           
+           }
+          
+        }
+
+        });
+
+
+
 
 }
 
-router.route('/')
-  .get(checkAuthenticated,(req,res)=>{
 
-    res.render("userend",{user: req.user});
-  })
+
+router.get("/",GetData)
 
 
 

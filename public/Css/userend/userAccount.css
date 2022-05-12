@@ -1,0 +1,61 @@
+.header {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 20px;
+}
+
+form {
+  width: 500px;
+  margin: 20px auto;
+}
+
+.change-option {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.change-option a {
+  text-decoration: none;
+  cursor: pointer;
+  color: rgb(28, 199, 179);
+  font-size: 18px;
+}
+input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 12px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #04aa6d;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: 100%;
+  padding: 10px 18px;
+  background: none;
+  color: #000;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 120px;
+  border-radius: 50%;
+}

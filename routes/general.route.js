@@ -4,16 +4,27 @@ const cookieParser = require('cookie-parser');
 const { check,  validationResult} = require('express-validator')
 const bodyParser = require('body-parser');
 const GetDays = require('../Helpers/GetDays');
-const {checkAuthenticated} = require('../Helpers/Information');
-
-
-
-
 
 
 // objects
 const router = express.Router();
 const body = bodyParser.urlencoded({extended:true});
+
+// middleware to check user logged in or not
+function login_check(req,res,next){
+
+  if(! req.user)
+  {
+    res.redirect("/login");
+  }else{
+
+    next();
+  }
+}
+
+
+
+
 
 
 router.use(express.json())
@@ -37,7 +48,7 @@ let generalInfo = {};
 
 
 router.route('/')
-  .get(checkAuthenticated,(req,res)=>{
+  .get(login_check,(req,res)=>{
 
     // console.log(req.get('accept'));
     // console.log(req.baseUrl);
@@ -80,14 +91,7 @@ router.route('/')
     })
 
 
-
-
-
-
   }else{
-
-
-    
 
     generalInfo.CreationDate = req.body.dates;
     let Days = GetDays(generalInfo.CreationDate);
@@ -102,12 +106,6 @@ router.route('/')
 
     //   generalInfo,
     // })
-
-
-
-    
-    
-
    
     
     

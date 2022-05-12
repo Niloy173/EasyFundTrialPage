@@ -1,14 +1,9 @@
+
+
 // variable initializer 
 let SLideInd = 0;
 let timecount=0;
 let i;
-
-// module scaffolding
-const app = {
-
-  startProject : "./components/Start_Project/FirstPage.html",
-  DiscoverProject : "./components/DiscoverProject/discover_project.html",
-}
 
 // getElementBy properties
 let slides_img = document.getElementsByClassName("singleSlide");
@@ -55,28 +50,6 @@ function showSlide()
 }
 
 
-
-// click => Go to start project
-function GoToProjectSection(){
-
-  location.href= app.startProject;
-
-  
-}
-
-
-// click => Go to discover project
-
-function GoToDiscoverProject(){
-
-  location.href = app.DiscoverProject;
-}
-
-
-
-
-
-
 // temporary solution
 // click to show the navbar or close the navbar by window reducing 
 show_nav.addEventListener('click',function(e){
@@ -95,3 +68,4 @@ show_nav.addEventListener('click',function(e){
   
 
 });
+

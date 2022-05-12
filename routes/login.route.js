@@ -1,46 +1,35 @@
 const express = require('express');
-const cookieParser = require('cookie-parser');
+const passport = require('passport');
 const router = express.Router();
 
+router.use(express.json())
 
 
+router.get("/",(req,res)=>{
 
-router.use(express.json());
-router.use(cookieParser());
+    res.render("login")
+})
 
-//google Auth Here
-const {OAuth2Client} = require('google-auth-library');
-const CLIENT_ID = '996077912258-17f6mjq59eejfc8esl4fug367s92uo41.apps.googleusercontent.com';
-const client = new OAuth2Client(CLIENT_ID);
+router.get("/google",passport.authenticate('google',{
 
-router.route('/')
-    .get((req,res)=>{
+  // this is for checking or constant screen
+    scope : ['profile','email']
 
-      res.render("login");
-    })
-    .post((req,res)=>{
+}));
 
-      let token = req.body.token;
-     // console.log(token)
+router.get("/google/redirect",passport.authenticate('google',{failureRedirect : '/login/google'}),(req,res)=>{
 
-      async function verify() {
-        const ticket = await client.verifyIdToken({
-            idToken: token,
-            audience: CLIENT_ID,  // Specify the CLIENT_ID of the app that accesses the backend
-        });
-        const payload = ticket.getPayload();// holds userInformation
-        const userid = payload['sub'];
-        // console.log(payload);
-      }
-      verify()
-      .then(()=>{
-          res.cookie('session-token', token);
-          res.send('success')
-      })
-      .catch(console.error);
+  try {
+    
 
-      
-    })
+    res.redirect("/userend");
+    
+  } catch (error) {
+    
+    console.log(error)
+  }
+
+})
 
 
 

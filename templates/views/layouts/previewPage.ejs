@@ -25,7 +25,7 @@
   </head>
   <body>
     <% if(typeof StoryTitle === 'undefined' || typeof Amount === 'undefined' ||
-    typeof Validity === 'undefined') { %>
+    typeof Validity === 'undefined' ) { %>
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
       <p>Information Error -------------</p>
       <a style="color: #000" href="/GeneralSettings">
@@ -36,5 +36,11 @@
 
     <script src="/js/createproject/generalsettings.js"></script>
     <script src="/js/createproject/previewPage.js"></script>
+    <script>
+      function myFunction() {
+        document.getElementById("mainStory").readOnly = "true";
+      }
+      myFunction();
+    </script>
   </body>
 </html>

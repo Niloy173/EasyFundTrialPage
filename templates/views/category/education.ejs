@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Easy Fund | Discover project</title>
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/common.css" />
+    <link rel="stylesheet" href="/css/EssentialMsg.css" />
+    <link rel="stylesheet" href="/css/card.css" />
+  </head>
+  <body>
+    <div class="heading_part_discover">
+      <div class="content_header">
+        <h2>Education  projects</h2>
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet placeat
+          cum adipisci!
+        </p>
+      </div>
+    </div>
+
+    <div class="second_container">
+      <p class="head">All Projects</p>
+
+      <div id="card-list">
+       
+      <% if (Object.keys(data).length !=0){ %>
+        <div id="card-list">
+          <% data.forEach(element => { %>
+  
+            <a style="text-decoration: none; color: black;" href="/story/project/<%= element["_id"] %>">
+          <div class="card-container">
+            <img
+              class="card-cover-img"
+              src="data:image/<%=element.CoverPicture.contentType%>;base64,
+  <%=element.CoverPicture.data.toString('base64')%>"
+              alt="Sample"
+            />
+  
+            <p class="subject" style="padding: 10px">
+              <%= element["StoryTitle"] %>
+            </p>
+  
+            <div class="category" style="display: flex; padding-bottom: 10px">
+              <span class="" style="padding-left: 10px; font-weight: bold"
+                >category : </span
+              ><label class="CtypeName" style="padding: 0px 10px"
+                ><%= element["Category"] %></label
+              >
+            </div>
+  
+            <p class="amount_section">
+              Target Amount : $<%= element["Amount"] %>
+            </p>
+          </div>
+  
+          </a>
+  
+          <% }); %>
+        </div>
+  
+        <% } else { %>  
+  
+          <div class="no-project">
+  
+            <p> Currently No Project Available</p>
+          </div>
+          
+          <% } %>
+      </div>
+    </div>
+
+    <%- include('../../partials/category.ejs') %>
+
+    <div class="Summery">
+      <p class="Ques">Why Don't You Try Easy Fund Now ?</p>
+
+      <div class="Go_to_project">
+        <button class="project_btn">
+          <a href="/GeneralSettings">Create Project</a>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

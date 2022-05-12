@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-
+const {Project} = require("../../db/usefulInfo")
 
 const router = express.Router();
 
@@ -15,12 +15,25 @@ const NameOfCatgeory = (req,res,next)=>{
 }
 
 
-router.all("*",NameOfCatgeory);
+// router.all("*",NameOfCatgeory);
 
 router.route('/')
-    .get((req,res)=>{
+    .get(async (req,res)=>{
 
-      res.render("category/medical");
+       try {
+
+        const data = await  Project.ByCategoryName("Medical");
+        res.status(200).render("category/medical",{
+
+          data,
+        })
+         
+       } catch (error) {
+         
+          res.status(500).json({
+            error : error.message
+          })
+       }
     })
 
 

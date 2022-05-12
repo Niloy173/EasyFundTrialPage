@@ -1,72 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+<nav id="navbar">
+  <div class="logo"><a href="/userend">EasyFunD</a></div>
+  <!-- <input type="checkbox" id="click" /> -->
+  <label onclick="opennav()" id="show_nav" for="click" class="menu-btn">
+    <i class="fas fa-bars"></i>
+  </label>
 
-    <script
-      src="https://kit.fontawesome.com/75f4bd15f7.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="/css/navbar_user.css" />
-  </head>
-  <body>
-    <nav id="navbar">
-      <div class="logo"><a href="/index">EasyFunD</a></div>
-      <!-- <input type="checkbox" id="click" /> -->
-      <label onclick="opennav()" id="show_nav" for="click" class="menu-btn">
-        <i class="fas fa-bars"></i>
-      </label>
+  <div class="nav_menu_item">
+    <ul id="nav_menu_item">
+      <li>
+        <a href="/GeneralSettings">Start a project</a>
+      </li>
+      <li id="box_sign">
+        <% if( picturelink != '') { %>
+        <img onclick="opennav()" src="<%= picturelink  %>" alt="user-profile" />
+        <% } else { %>
 
-      <div class="nav_menu_item">
-        <ul id="nav_menu_item">
-          <li>
-            <a href="/GeneralSettings">Start a project</a>
-          </li>
-          <li id="box_sign">
-            <a href="#">
-              <img onclick="opennav()" src="<%= user.picture %>" alt="user
-              profile"
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+        <img
+          onclick="opennav()"
+          src="data:image/<%= picture.contentType%>;base64,
+<%= picture.data.toString('base64')%>"
+          alt="user-profile"
+        />
 
-    <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-        >&times;</a
-      >
+        <% } %>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-      <p><%= user.name %></p>
-      <hr />
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-      <a class="article" href="/article/how_it_works.html">How it works</a>
-      <a class="article" href="/article/write_a_story.html"
-        >How to write a Story</a
-      >
-      <a class="article" href="/article/category_tips.html">Category Tips</a>
+  <p><%= username %></p>
+  <hr />
 
-      <hr />
+  <a class="article" href="/article/how_it_works.html">How it works</a>
+  <a class="article" href="/article/write_a_story.html">How to write a Story</a>
+  <a class="article" href="/article/category_tips.html">Category Tips</a>
 
-      <a href="/DiscoverProjects">Discover All Project</a>
+  <hr />
 
-      <a href="#"> Account Settings</a>
+  <a href="/DiscoverProjects">Discover All Project</a>
 
-      <a href="#">Privacy & Policy</a>
+  <a href="/account/settings"> Account Settings</a>
 
-      <a href="/logout">Sign out</a>
-    </div>
+  <a href="#">Privacy & Policy</a>
 
-    <script>
-      function opennav() {
-        document.getElementById("mySidenav").style.width = "250px";
-      }
-      function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-      }
-    </script>
-  </body>
-</html>
+  <a href="/logout">Sign out</a>
+</div>

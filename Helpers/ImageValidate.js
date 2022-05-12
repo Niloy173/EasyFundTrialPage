@@ -14,7 +14,7 @@ function check()
   
     for (const file of files) {
       fs.unlink(path.join(UPLAOD_FOLDER, file), (err,cb) => {
-        if (err) cb(new Error("File Error "))
+        if (err) cb(new Error("File Error ")) // Not efficient
       });
     }
   });
@@ -55,7 +55,7 @@ var upload = multer({
   storage : storage,
   limits : {
 
-    fileSize : 5000000,
+    fileSize : 5000000, // size may vary
   },
   fileFilter : (req,file,cb) =>{
 
@@ -64,11 +64,11 @@ var upload = multer({
     || file.mimetype === "image/jpeg")
     {
 
-      cb(null,true);
+      cb(null,true); // unnecessary check
 
     }else{
 
-      cb(new Error("Only .png/jpg/jpeg format allowed"))
+      cb(new Error("Only .png/jpg/jpeg format allowed")); // temporaray because we have already handle this in html accept tag
     }
 
     

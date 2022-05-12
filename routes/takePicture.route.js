@@ -2,27 +2,33 @@ const express = require('express');
 const multer = require('multer');
 const router = express.Router();
 const _ = require('../Helpers/ImageValidate');
-const {checkAuthenticated} = require('../Helpers/Information');
+
 
 
 var  message;
+
+
+// middleware to check user logged in or not
+function login_check(req,res,next){
+
+  if(! req.user)
+  {
+    res.redirect("/login");
+  }else{
+
+    next();
+  }
+}
+
 
 
 
 
 
 router.route('/')
-  .get(checkAuthenticated,(req,res)=>{
+  .get(login_check,(req,res)=>{
 
-   
-    // console.log(req.get('accept'))
-    
-    //console.log(req.route);
-    // console.log(req.app.get("view engine"));
-    // console.log(`Requwsted url => `+req.baseUrl);
-    // console.log(`Requwsted url => `+req.originalUrl);
-    // console.log(`Requwsted path => `+req.path);
-    // console.log(`Requwsted method => `+req.method);
+  
     res.render("layouts/takePicture");
   })
 
@@ -48,7 +54,8 @@ router.route('/')
      res.redirect("/layouts/WriteStory");
   })
 
-  
+
+  /* This middleware is Not working properly */
   const ErrorHandler = (err,req,res,next)=>{
 
 
@@ -66,6 +73,8 @@ router.route('/')
     }
   
   }
+
+  /*------------------------*/
   
   router.use(ErrorHandler);
   

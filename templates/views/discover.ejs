@@ -15,7 +15,7 @@
       href="/css/discover/discoverProject.css"
     />
     <link rel="stylesheet" href="css/EssentialMsg.css" />
-    <link rel="stylesheet" href="css/card.css" />
+    <link rel="stylesheet" href="/css/homepage/second_container.css" />
   </head>
   <body>
     <div class="heading_part_discover">
@@ -29,11 +29,53 @@
       </div>
     </div>
 
-    <div class="top_project">
-      <p>Top projects</p>
-    </div>
+    <div class="second_container">
+      <p class="head">All Projects</p>
 
-    <div id="card-list" class="all_project_card"></div>
+
+
+
+      <!--
+    this below card list should be dynamic and that's why we didn't write
+    any html yet but do check out the javascript file Test.js
+  -->
+
+      <div id="card-list">
+        <% data.forEach(element => { %>
+
+    
+        <a style="text-decoration: none; color: black;" href="/story/project/<%= element["_id"] %>">
+        <div id="<%= element["_id"] %>" class="card-container">
+          <img
+            class="card-cover-img"
+            src="data:image/<%=element.CoverPicture.contentType%>;base64,
+<%=element.CoverPicture.data.toString('base64')%>"
+            alt="Sample"
+          />
+
+          <p class="subject" style="padding: 10px">
+            <%= element["StoryTitle"] %>
+          </p>
+
+          <div class="category" style="display: flex; padding-bottom: 10px">
+            <span
+              class=""
+              style="padding-left: 10px; font-weight: bold"
+              >category : </span
+            ><label class="CtypeName" style="padding: 0px 10px"
+              ><%= element["Category"] %></label
+            >
+          </div>
+
+          <p class="amount_section">
+            Target Amount : $<%= element["Amount"] %>
+          </p>
+        </div>
+        </a>
+
+        <% }); %>
+      </div>
+    </div>
 
      <%- include('../partials/category.ejs') %> 
 
@@ -47,7 +89,7 @@
       </div>
     </div>
 
-    <script src="/js/discoverproject/discoverProject.js"></script>
+    <!-- <script src="/js/discoverproject/discoverProject.js"></script> -->
     <script src="/js/discoverproject/EachSection.js" />
   </body>
 </html>

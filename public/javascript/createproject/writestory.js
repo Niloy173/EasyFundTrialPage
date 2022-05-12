@@ -1,7 +1,6 @@
  // variable initializer
- var img;
  let arr = []; // to catch the selected word for bold 
- var image_file_name = [];
+ let image_file_name = [];
  let Title = "";
  let story = "";
 
@@ -12,18 +11,6 @@
  const file_input = document.getElementById("file-input"); // for selecting multiple files like .jpeg .jpg .png
  const content = document.getElementById("content"); // story div
 
- 
- // default text
- content.innerHTML = "write your story"
-
- //inital localstorage
- localStorage.setItem("Story","");
-
-
- document.getElementById("next").addEventListener("click",function(){
-
-  localStorage.setItem("Story",content.innerHTML);
- })
 
  
 

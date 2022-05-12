@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account | Easy Fund</title>
+    <link rel="stylesheet" href="/css/userend/userAccount.css" />
+  </head>
+  <body>
+    <p class="header">Account Settings</p>
+
+    <% userinfo.forEach(element => { %>
+
+    <form method="post" enctype="multipart/form-data">
+      <div class="imgcontainer">
+        <% if( element['picturelink'] != '') { %>
+        <img
+          id="display_img"
+          src="<%= element['picturelink'] %>"
+          alt="Avatar"
+          class="avatar"
+        />
+        <% } else { %>
+
+        <img
+          id="display_img"
+          src="data:image/<%= element.picture.contentType%>;base64,
+  <%=element.picture.data.toString('base64')%>"
+          alt="Avatar"
+          class="avatar"
+        />
+
+        <% } %>
+      </div>
+
+      <div class="change-option">
+        <input
+          style="display: none"
+          type="file"
+          accept="image/jpg, image/png, image/jpeg"
+          id="file"
+          name="avatar"
+        />
+        <label style="cursor: pointer" id="img-input" for="file"
+          >upload a picture</label
+        >
+      </div>
+
+      <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input
+          type="text"
+          value="<%=element['username']%>"
+          name="uname"
+          required
+        />
+
+        <label for="psw"><b>Country or Region</b></label>
+        <input type="text" value="Bangladesh" readonly />
+      </div>
+
+      <button type="submit">save</button>
+
+      <div class="container">
+        <button type="button" class="cancelbtn">
+          <a style="text-decoration: none; color: #000" href="/">back</a>
+        </button>
+      </div>
+    </form>
+    <% }); %>
+  </body>
+  <script src="/js/createproject/takingpicture.js"></script>
+</html>

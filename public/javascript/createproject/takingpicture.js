@@ -3,7 +3,6 @@
 
 // click able element through id or classname
 const img_input = document.getElementById("file");
-const next_page = document.getElementById("next_page");
 const reader = new FileReader();
    
 
@@ -43,17 +42,6 @@ const reader = new FileReader();
   });
 
 
-
-// next_page.addEventListener("click",function(){
-
-//    if(cover_image === undefined)
-//    {
-//      alert("Image is not selected");
-//    }else{
-
-//     alert("Selected Image : "+cover_image);
-//    }
-// })
 
 
 

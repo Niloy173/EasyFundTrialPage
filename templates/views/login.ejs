@@ -4,56 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="google-signin-client_id"
-      content="996077912258-17f6mjq59eejfc8esl4fug367s92uo41.apps.googleusercontent.com"
-    />
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-
     <title>Login</title>
+    <style>
+      main,
+      header {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 0 10px;
+        color: #333;
+      }
+      .google-btn {
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px;
+        background: #ff5353;
+      }
+    </style>
   </head>
   <body>
-    <p>this is my login page</p>
+    <header>
+      <h1>login using</h1>
+    </header>
 
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-
-    <script>
-      function onSignIn(googleUser) {
-        // var profile = googleUser.getBasicProfile();
-        // console.log("ID: " + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        // console.log("Name: " + profile.getName());
-        // console.log("Image URL: " + profile.getImageUrl());
-        // console.log("Email: " + profile.getEmail()); // This is null if the 'email' scope is not present.
-
-        var id_token = googleUser.getAuthResponse().id_token;
-
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "/login");
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.onload = function () {
-          if (xhr.responseText == "success") {
-            //console.log("Signed in as: " + xhr.responseText);
-            // signOut();
-            location.assign("/userend");
-          }
-        };
-        try {
-          xhr.send(JSON.stringify({ token: id_token }));
-        } catch (error) {
-          console.log(error);
-        }
-      }
-    </script>
-
-    <script>
-      function signOut() {
-        var auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function () {
-          console.log("User signed out.");
-        });
-      }
-    </script>
-
-    <script></script>
+    <main>
+      <a class="google-btn" href="/login/google">Sign in with Google+</a>
+    </main>
   </body>
 </html>

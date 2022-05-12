@@ -43,9 +43,9 @@
 
     
 
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <div id="error-div" class="alert alert-warning alert-dismissible fade show" role="alert">
           <%= error.msg %> 
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <button id="error-btn" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div> 
 
         <% }) %>
@@ -91,10 +91,15 @@
       <input name="category" type="text" placeholder="Choose your category" id="category_box"  class="input-box2"/><i style="text-align: end;" class="arrow down"></i></button> 
      
       
-      <div id="myDropdown" class="dropdown-content">
+      <div  id="myDropdown" class="dropdown-content">
         <a onclick="GetValue('Medical')" class="property" href="#">Medical</a>
         <a onclick="GetValue('Education')"  class="property" href="#">Education</a>
         <a onclick="GetValue('Family')"  class="property" href="#">Family</a>
+        <a onclick="GetValue('Study Abroad')"  class="property" href="#">Study Abroad</a>
+        <a onclick="GetValue('Business')"  class="property" href="#">Business</a>
+        <a onclick="GetValue('Disaster')"  class="property" href="#">Disaster</a>
+        <a onclick="GetValue('Commuinty')"  class="property" href="#">Community</a>
+        <a onclick="GetValue('Others')"  class="property" href="#">Others</a>
       </div>
 
       <button type="submit"  id="next-page" class="next-page">Next</button>
@@ -113,11 +118,21 @@
     </div>
 
 
-
-
-
     <script src="/js/createproject/generalsettings.js"> </script>
     <script src="/js/createproject/previewPage.js"> </script>
+    <script>
+                /* event click for closing the error related div */
+          const error_div = document.querySelectorAll("#error-btn");
+
+          for (let index = 0; index < error_div.length; index++) {
+            
+            error_div[index].addEventListener("click",function(){
+
+                this.parentNode.remove();
+            })
+            
+          }
+    </script>
     
 
 

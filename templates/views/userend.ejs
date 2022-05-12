@@ -5,9 +5,74 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/css/navbar.css" />
+    <script
+      src="https://kit.fontawesome.com/75f4bd15f7.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/css/navbaruser.css" />
+    <link rel="stylesheet" href="/css/homepage/first_container.css" />
+    <link rel="stylesheet" href="/css/homepage/second_container.css" />
   </head>
   <body>
-    <%- include('../partials/navbar_user.ejs') %>
+    <%- include('../partials/navbar_user.ejs') %> <%-
+    include('../partials/banner.ejs') %>
+
+
+<div class="second_container">
+  <p class="head">Feature Projects</p>
+
+
+
+<div id="card-list">
+  <% data.forEach(element => { %>
+
+  <label style="display: none"><%= element["_id"] %></label>
+ 
+  <a style="text-decoration: none; color: black;" href="/story/project/<%= element["_id"] %>">
+
+    <div  onclick="GiveusTheId(this.id)" id="<%= element["_id"] %>" class="card-container">
+      <img
+        class="card-cover-img"
+        src="data:image/<%=element.CoverPicture.contentType%>;base64,
+  <%=element.CoverPicture.data.toString('base64')%>"
+        alt="Sample"
+      />
+  
+      <p class="subject" style="padding: 10px">
+        <%= element["StoryTitle"] %>
+      </p>
+  
+      <div class="category" style="display: flex; padding-bottom: 10px">
+        <span
+          class="material-icons"
+          style="padding-left: 10px; font-weight: bold"
+          >category : </span
+        ><label class="CtypeName" style="padding: 0px 10px"
+          ><%= element["Category"] %></label
+        >
+      </div>
+  
+      <p class="amount_section">
+        Target Amount : $<%= element["Amount"] %>
+      </p>
+    </div>
+  </a>
+
+  <% }); %>
+</div>
+</div>
   </body>
+
+  <script src="/js/homepage/Homepage.js"></script>
+  <script src="/js/homepage/FeatureProject.js"></script>
+  <script>
+    function opennav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+
+
+  </script>
 </html>

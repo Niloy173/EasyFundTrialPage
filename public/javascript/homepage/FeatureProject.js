@@ -2,7 +2,6 @@
 
 
 
-
 /*
 
   what we want here is to add all the medical story indiviuals in the same page

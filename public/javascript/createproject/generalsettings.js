@@ -128,3 +128,5 @@ document.getElementById("next-page").addEventListener("click",()=>{
   // localStorage.setItem("amount",AmountToCover);
   
 })
+
+

@@ -1,18 +1,46 @@
 const express = require('express');
-const cookieParser = require('cookie-parser');
 const router = express.Router();
-const {checkAuthenticated} = require('../Helpers/Information');
+const {Project} = require("../db/usefulInfo");
+const ErrorHandler =require("../Helpers/errorHandler");
 
-router.use(express.json());
-router.use(cookieParser());
 
-router.route('/')
-    .get(checkAuthenticated,(req,res)=>{
+function GetData(req,res,next)
+{
+   Project.find({})
+     
+      .select({})
+      .limit(8)
+      .exec((err,data)=>{
+  
+        if(err){
+          res.status(500).json({
+            error : "There was an error in your request"
+          });
+          
+        }else{
 
-      let user = req.user;
-      //console.log(user);
-      res.render("userend",{user});
-    })
+         
+           
+            res.render("userend",{
+              username : req.user.username,
+              picturelink : req.user.picturelink,
+              picture : req.user.picture ? req.user.picture : undefined,
+              data,
+            
+            });
+         
+        }
+
+        });
+
+
+
+
+}
+
+
+
+router.get("/",GetData);
 
 module.exports ={
 

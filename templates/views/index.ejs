@@ -20,7 +20,42 @@
     this below card list should be dynamic and that's why we didn't write
     any html yet but do check out the javascript file Test.js
   -->
-      <div id="card-list"></div>
+
+      <div id="card-list">
+        <% data.forEach(element => { %>
+
+           
+        <a style="text-decoration: none; color: black;" href="/story/project/<%= element["_id"] %>">
+        <div onclick="GiveusTheId(this.id)" id="<%= element["_id"] %>" class="card-container">
+          <img
+            class="card-cover-img"
+            src="data:image/<%=element.CoverPicture.contentType%>;base64,
+<%=element.CoverPicture.data.toString('base64')%>"
+            alt="CardCover"
+          />
+
+          <p class="subject" style="padding: 10px">
+            <%= element["StoryTitle"] %>
+          </p>
+
+          <div class="category" style="display: flex; padding-bottom: 10px">
+            <span
+              class="material-icons"
+              style="padding-left: 10px; font-weight: bold"
+              >category : </span
+            ><label class="CtypeName" style="padding: 0px 10px"
+              ><%= element["Category"] %></label
+            >
+          </div>
+
+          <p class="amount_section">
+            Target Amount : $<%= element["Amount"] %>
+          </p>
+        </div>
+
+        </a>
+        <% }); %>
+      </div>
     </div>
 
     <script src="/js/homepage/Homepage.js"></script>

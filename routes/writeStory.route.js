@@ -1,22 +1,37 @@
 const exprees = require('express');
 const url = require('url');
+const path = require('path');
+const fs = require('fs');
 const { check,  validationResult} = require('express-validator')
 const bodyParser = require('body-parser');
 const router = exprees.Router();
-const {checkAuthenticated} = require('../Helpers/Information');
+
 
 const {generalInfo} = require('./general.route');
+const updated_path = "/img/Picture/";
+let FullPath,filename;
 
 
-var Title_story = "";
+
+const body = bodyParser.urlencoded({extended:true});
 
 
+// middleware to check user logged in or not
+function login_check(req,res,next){
 
-const body = bodyParser.urlencoded({extended:false});
+  if(! req.user)
+  {
+    res.redirect("/login");
+  }else{
+
+    next();
+  }
+}
+
 
 
 router.route('/')
-  .get(checkAuthenticated,(req,res)=>{
+  .get(login_check,(req,res)=>{
 
 
     res.render("layouts/writeStory");
@@ -30,7 +45,9 @@ router.route('/')
 
 
 
-  ],(req,res)=>{
+
+
+  ],(req,res,next)=>{
 
     let error = validationResult(req);
 
@@ -46,37 +63,59 @@ router.route('/')
 
     }else{
 
-      // console.log(req.body)
-      // res.status(200).json({
+ 
+      let Main_story = req.body.story;
 
-      //   Data : req.body,
-      // })
 
-      Title_story = req.body.Title;
+      FullPath  = fs.readdirSync(__dirname+"/../"+"/public/Image/Picture/"); // Synchronous or asynchronous shouldn't be an issu
+      filename = FullPath[0];
+      
+      FullPath = path.join(updated_path,FullPath[0]);
+
+
+      setTimeout(() => {
+
+        res.redirect(url.format({
+
+          pathname : "/layouts/PreviewStory",
+          
+         
+  
+            query : {
+  
+              "StoryTitle" : req.body.Title,
+               Main_story,
+              "Amount" : generalInfo.Amount,
+             "Validity": generalInfo.ProjectDuartion,
+             "Category": generalInfo.Category,
+             "FullPath":FullPath,
+             "Filename":filename,
+           
+             
+            }
+  
+  
+          
+        }));
+        
+      }, 1000);
 
    
 
 
       
       // res.redirect("/layouts/PreviewStory");
-      res.redirect(url.format({
 
-        pathname : "/layouts/PreviewStory",
-        
-        query : {
-
-          "StoryTitle" : Title_story,
-          "Amount" : generalInfo.Amount,
-         "Validity": generalInfo.ProjectDuartion,
-         "Category": generalInfo.Category,
-
-         
-        }
-      }));
     }
+
+    
   });
 
 
+
+
+
+  
 
 module.exports = {
   router,
