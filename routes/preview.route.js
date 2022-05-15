@@ -81,6 +81,7 @@ router.get("/",login_check,(req,res,next)=>{
     ProjectDocument.StoryTitle = req.query.StoryTitle;
     ProjectDocument.MainStory = req.query.Main_story;
     ProjectDocument.Category = req.query.Category;
+    ProjectDocument.CreationDate = new Date().toLocaleDateString(),
     ProjectDocument.CoverPicture = {
       data : fs.readFileSync(path.join(__dirname+"/../public/Image/Picture/"+req.query.Filename)),
       contentType : path.extname(req.query.Filename).replace('.',""),

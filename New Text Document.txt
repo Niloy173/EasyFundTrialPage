@@ -1,5 +1,0 @@
-used .gitignore
-
-then add node_modules // don't need to push them hence check out package.json
-then add .env file // because it's kind of protected for an example using JWT 
-then add other necessary folder which is not recommended for uploading in github

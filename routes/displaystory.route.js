@@ -67,6 +67,7 @@ router.get("/project/:id",  (req,res)=>{
             OtherUser, // option to render for support
             RequestedUrl, // For sharing the project
             picture,// if any case user updated his/her picture
+            
 
 
           });

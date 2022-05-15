@@ -72,7 +72,7 @@
         </div>
         <div class="right-side">
 
-          <h4 id="amount" class="taka">100 </h4> 
+          <h4 onclick="openMoneyBox()" id="amount" class="taka">100 </h4> 
         </div>
        
       
@@ -85,13 +85,13 @@
      <div class="main-section">
 
       <p class="input_type">Deadline</p>
-      <input name="dates" id="demo" type="date" class="input-box"  />
+      <input onclick="fixDate()" name="dates" id="demo" type="date" class="input-box"  />
 
       <p class="input_type">Category</p>
-      <input name="category" type="text" placeholder="Choose your category" id="category_box"  class="input-box2"/><i style="text-align: end;" class="arrow down"></i></button> 
+      <input onclick="openCategory()" name="category" type="text" placeholder="Choose your category" id="category_box"  class="input-box2"/><i style="text-align: end;" class="arrow down"></i></button> 
      
       
-      <div  id="myDropdown" class="dropdown-content">
+      <div    id="myDropdown" class="dropdown-content">
         <a onclick="GetValue('Medical')" class="property" href="#">Medical</a>
         <a onclick="GetValue('Education')"  class="property" href="#">Education</a>
         <a onclick="GetValue('Family')"  class="property" href="#">Family</a>
@@ -108,9 +108,9 @@
         <label class="policy">Terms of Use and Privacy Policy</label>.</p>
      </div>
 
-    <div  id="money" class="amount-input">
+    <div   id="money" class="amount-input">
       <input value="100" name="amount"  type="number" min="100" max="1500" placeholder="Write Your Amount Here" id="amount-data" />
-      <p id="btn-click">ok</p>
+      <p onclick="confirmBox()" id="btn-click">ok</p>
     </div>
 
      </form>
@@ -118,8 +118,8 @@
     </div>
 
 
-    <script src="/js/createproject/generalsettings.js"> </script>
-    <script src="/js/createproject/previewPage.js"> </script>
+    <script src="/js/createproject/generalsettings.js" defer> </script>
+    <script src="/js/createproject/previewPage.js" defer> </script>
     <script>
                 /* event click for closing the error related div */
           const error_div = document.querySelectorAll("#error-btn");

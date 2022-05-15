@@ -51,16 +51,28 @@
         <label for="uname"><b>Username</b></label>
         <input
           type="text"
+          onkeyup="charCount(this)"
           value="<%=element['username']%>"
           name="uname"
           required
         />
+        <label
+          id="message"
+          style="
+            font-size: 13px;
+            display: flex;
+            justify-content: end;
+            margin: 5px 0;
+          "
+        >
+          0//20
+        </label>
 
         <label for="psw"><b>Country or Region</b></label>
         <input type="text" value="Bangladesh" readonly />
       </div>
 
-      <button type="submit">save</button>
+      <button id="btn-save" type="submit">save</button>
 
       <div class="container">
         <button type="button" class="cancelbtn">
@@ -69,6 +81,7 @@
       </div>
     </form>
     <% }); %>
+    <script src="/js/createproject/takingpicture.js" defer></script>
+    <script src="/js/userend/userAccount.js" defer></script>
   </body>
-  <script src="/js/createproject/takingpicture.js"></script>
 </html>

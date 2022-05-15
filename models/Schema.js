@@ -48,8 +48,13 @@ const Schema = mongoose.Schema({
 
     data : Buffer,
     contentType: String,
-  }
+  },
   
+  CreationDate : { 
+
+    type : Date,
+    required : true,
+  }
 
 });
 

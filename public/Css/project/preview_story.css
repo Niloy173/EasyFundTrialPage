@@ -78,13 +78,13 @@
   margin: 0 20px 10px;
 }
 
-.main_story {
+#mainStory {
+  resize: none;
+  overflow: hidden;
   margin: 20px 0;
   padding: 10px 5px;
   width: 650px;
-  height: 700px;
-  overflow: hidden;
-  /* height: 700px; this value should be changed */
+  font-size: 15px;
   border: none;
   background-color: transparent;
   outline: none;
@@ -361,7 +361,4 @@
   background-color: rgb(211, 55, 211);
   font-weight: bold;
   cursor: pointer;
-}
-
-#mainStory {
 }

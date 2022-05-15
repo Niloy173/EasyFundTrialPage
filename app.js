@@ -58,6 +58,7 @@ const loginRoute = require('./routes/login.route');
 const userRoute = require('./routes/userend.route')
 const DisplayProjectRoute = require("./routes/displaystory.route");
 const UserAccount = require("./routes/userAccount.route");
+const UserProject = require("./routes/userporject.route");
 // const categoryRoute = require('./routes/category.route');
 
 
@@ -117,8 +118,8 @@ app.use('/layouts/TakingPicture',takingPicture.router);
 app.use('/layouts/WriteStory',writingStory.router);
 app.use('/layouts/PreviewStory',previewStory);
 app.use("/story",DisplayProjectRoute.router);
-app.use("/account",UserAccount.router)
-
+app.use("/account",UserAccount.router);
+app.use("/user",UserProject.router);
 
 
 

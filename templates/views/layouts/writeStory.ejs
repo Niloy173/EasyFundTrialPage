@@ -52,7 +52,8 @@
     <div class="title-field">
 
       <p class="sub_head">Title</p>
-      <input name="Title" type="text" placeholder="write title" id="title" />
+      <input onkeyup="charCount(this)" name="Title" type="text" placeholder="write title" id="title" />
+      <p  style="font-size: 13px; display: flex; justify-content: end;" id="charnum">0/60</p>
       <div id="error-msg" style="display: none;"></div>
 
     </div>
@@ -104,7 +105,9 @@
       
 
       <!-- Testing purpose -->
-      <textarea name="story" id="content" class="txt-area"  placeholder="Write your story"></textarea> 
+      <textarea onkeyup="charDecrease(this)" name="story" id="content" class="txt-area"  placeholder="Write your story"></textarea> 
+      <p  style="font-size: 13px; display: flex; justify-content: end;" id="storychar">5000</p>
+      
 
       <!-- <div  contenteditable="true" id="content" class="txt-area" > 
       </div> --> 
@@ -135,7 +138,7 @@
 
 
 
-  <script src="/js/createproject/writestory.js"></script>
+  <script src="/js/createproject/writestory.js" defer></script>
   <script>
     /* event click for closing the error related div */
       const error_div = document.querySelectorAll("#error-div");

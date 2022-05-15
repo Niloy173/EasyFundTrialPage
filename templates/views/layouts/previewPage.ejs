@@ -34,13 +34,13 @@
     </div>
     <% } else { %> <%- include('../../partials/story.ejs') %> <% } %>
 
-    <script src="/js/createproject/generalsettings.js"></script>
-    <script src="/js/createproject/previewPage.js"></script>
     <script>
-      function myFunction() {
-        document.getElementById("mainStory").readOnly = "true";
-      }
-      myFunction();
+      window.setTimeout(function () {
+        document.getElementById("mainStory").style.height =
+          document.getElementById("mainStory").scrollHeight + "px";
+      });
     </script>
+
+    <script src="/js/createproject/previewPage.js" defer></script>
   </body>
 </html>

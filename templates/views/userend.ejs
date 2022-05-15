@@ -25,12 +25,10 @@
 
 <div id="card-list">
   <% data.forEach(element => { %>
-
-  <label style="display: none"><%= element["_id"] %></label>
  
   <a style="text-decoration: none; color: black;" href="/story/project/<%= element["_id"] %>">
 
-    <div  onclick="GiveusTheId(this.id)" id="<%= element["_id"] %>" class="card-container">
+    <div  id="<%= element["_id"] %>" class="card-container">
       <img
         class="card-cover-img"
         src="data:image/<%=element.CoverPicture.contentType%>;base64,
@@ -63,8 +61,8 @@
 </div>
   </body>
 
-  <script src="/js/homepage/Homepage.js"></script>
-  <script src="/js/homepage/FeatureProject.js"></script>
+  <script src="/js/homepage/Homepage.js" defer></script>
+  <script src="/js/homepage/FeatureProject.js" defer></script>
   <script>
     function opennav() {
       document.getElementById("mySidenav").style.width = "250px";
