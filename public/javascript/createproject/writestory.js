@@ -12,7 +12,7 @@
  const content = document.getElementById("content"); // story div
 
 
- 
+
 
 
 
@@ -100,3 +100,41 @@ function preview()
 
 
 
+/* Live character count for title */
+
+function charCount(obj)
+{
+  let  maxLength = 60;
+  let currLength = obj.value.length;
+  document.getElementById("charnum").innerHTML = currLength + "/"+maxLength;
+  
+  if(currLength > maxLength)
+  {
+    document.getElementById("charnum").innerHTML =`<span style="color: red;"> ${currLength} out of  ${maxLength}  characters</span>`
+    document.getElementById("next").style.display = "none";
+  }else{
+
+    document.getElementById("charnum").innerHTML = currLength + "/"+maxLength;
+    document.getElementById("next").style.display = "block";
+  }
+  
+}
+
+
+function charDecrease(obj)
+{
+  let maxLength = 5000;
+  let currLength = obj.value.length;
+  let presentLength = (maxLength - currLength);
+  document.getElementById("storychar").innerHTML = presentLength;
+ 
+  if( presentLength < 0 )
+  {
+    document.getElementById("storychar").style.innerHTML = `<span style="color : red">${currLength} out of ${maxLength} characters</span>`
+    document.getElementById("next").style.display = "none";
+  }else{
+
+    document.getElementById("storychar").innerHTML = presentLength ;
+    document.getElementById("next").style.display = "block";
+  }
+}

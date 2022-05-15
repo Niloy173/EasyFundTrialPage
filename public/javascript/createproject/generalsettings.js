@@ -27,32 +27,29 @@ const confirm_amount = document.getElementById("btn-click");
 let  date_issued = document.getElementById("demo");
 
 
+function openCategory()
+{
 
-// dropdown category
-category_box.addEventListener("click",function(){
+    dropdown_content.style.display = "block"
 
-  dropdown_content.style.display = "block"
+}
 
-});
-
-// amount container opening
-input_money_container.addEventListener("click",function(){
-
+function openMoneyBox()
+{
   input_money.style.display = "block";
-
- 
-})
+}
 
 
-// amount container ok button click listener
-confirm_amount.addEventListener("click",function(){
+
+
+function confirmBox(){
 
   AmountToCover = document.getElementById("amount-data").value;
   AmountToCover = AmountToCover > 1500 || AmountToCover.toString().length == 0 || AmountToCover < 100  ? 100:AmountToCover;
 
   input_money_container.innerHTML = AmountToCover;
   input_money.style.display = "none";
-})
+};
 
 
 
@@ -62,7 +59,9 @@ confirm_amount.addEventListener("click",function(){
 
 
 // working on preventing past date selection 
-
+function fixDate()
+{
+  
 let dateobj = new Date();
 let CurrDate = dateobj.getDate();
 let currMonth = dateobj.getMonth()+1;
@@ -82,6 +81,7 @@ let Today = currYear + "-" + currMonth + "-" + CurrDate;
 //console.log(Today);
 
 document.getElementById("demo").setAttribute('min',Today);
+}
 
 /********************************************************** */
 
@@ -120,13 +120,5 @@ function GetValue(val)
   dropdown_content.style.display = "none";
 }
 
-
-document.getElementById("next-page").addEventListener("click",()=>{
-
- 
-
-  // localStorage.setItem("amount",AmountToCover);
-  
-})
 
 
