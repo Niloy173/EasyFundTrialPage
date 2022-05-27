@@ -25,30 +25,43 @@ passport.use(new GoogleStrategy({
       clientID : google.clientID,
       clientSecret : google.clientSecret,
 },(accessToken, refreshToken, profile,done)=>{
-  User.findOne({googleId : profile.id})
-  .then((currUser)=>{
+ 
+  // if(profile._json.hd === "diu.edu.bd") // to check specfic domain
+  // {
 
-       if(currUser)
-       {
-         console.log("signed in with "+currUser.username);
-         done(null,currUser);
-       }else{
-
-        new User({
-
-          username :  profile.displayName,
-          googleId : profile.id,
-          picturelink : profile.photos[0].value,
-          email : profile.emails[0].value,
+    User.findOne({googleId : profile.id})
+    .then((currUser)=>{
+  
+         if(currUser)
+         {
+          console.log(profile)
+           console.log("signed in with "+currUser.username);
+           done(null,currUser);
+         }else{
+  
           
-         }).save().then((newUser)=>{
-        
-          console.log(`The new user created`)
-          done(null,newUser);
-         });
-       }
-  })
+  
+          new User({
+  
+            username :  profile.displayName,
+            googleId : profile.id,
+            picturelink : profile.photos[0].value,
+            email : profile.emails[0].value,
+            verified: false,
+            
+           }).save().then((newUser)=>{
+          
+            console.log(`The new user created`)
+            done(null,newUser);
+           });
+         }
+    })
+  
 
+  // }else{
+
+  //   done(new Error("Invalid host domain. Please! Signin with diu email"));
+  // }
 })
 
 )
