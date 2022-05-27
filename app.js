@@ -8,6 +8,9 @@ const path = require('path');
 const passportsetup = require('./Helpers/passport_setup');
 const {google,session} = require('./important');
 
+// require database connection
+
+require("./db/connection");
 
 const app = express();
 app.use(express.json());
@@ -16,16 +19,15 @@ app.use(express.json());
 // creating session for logged in user 
 app.use(cookieSession({
 
-  maxAge : "", // define how much time left in this session .it will reset in every request
+  maxAge : "24*3600*1000", // define how much time left in this session .it will reset in every request
   keys : [session.cookieKey],
+  
 
 }))
 app.use(passport.initialize())
 app.use(passport.session())
 
-// require database connection
 
-require("./db/connection");
 
 
 
@@ -171,6 +173,9 @@ app.use((err,req,res,next)=>{
 
   if(err.message)
   {
+    // in kind of server side error 
+    // for an example while login
+    // user should go with diu email not personal
     res.status(500).send(err.message);
   }else{
 
