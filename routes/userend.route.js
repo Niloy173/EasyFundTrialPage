@@ -20,7 +20,6 @@ function GetData(req,res,next)
         }else{
 
          
-           
             res.render("userend",{
               username : req.user.username,
               picturelink : req.user.picturelink,

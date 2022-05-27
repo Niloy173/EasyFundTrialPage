@@ -49,7 +49,7 @@ router.route('/settings')
                   picture :{
   
                     data : fs.readFileSync(path.join(__dirname+"/../public/Image/Picture/"+FullPath)),
-                      contentType : ext,
+                    contentType : ext,
                   }
   
                 }
