@@ -1,7 +1,7 @@
 <nav id="navbar">
   <div class="logo"><a href="/userend">EasyFunD</a></div>
   <!-- <input type="checkbox" id="click" /> -->
-  <label onclick="opennav()" id="show_nav" for="click" class="menu-btn">
+  <label id="show_nav" for="click" class="menu-btn">
     <i class="fas fa-bars"></i>
   </label>
 
@@ -29,7 +29,9 @@
 </nav>
 
 <div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeUserNav()"
+    >&times;</a
+  >
 
   <p><%= username %></p>
   <hr />
@@ -42,7 +44,7 @@
 
   <a href="/DiscoverProjects">Discover All Project</a>
 
-  <a href="/user/my-project">My Project</a>
+  <a href="/user/my-project">Project List</a>
 
   <a href="/account/settings"> Account Settings</a>
 
