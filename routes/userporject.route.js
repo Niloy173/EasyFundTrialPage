@@ -34,35 +34,35 @@ router.get("/my-project",(req,res)=>{
 
           });
 
- router.get("/my-project/:id",(req,res)=>{
+//  router.get("/my-project/:id",(req,res)=>{
 
    
-    if(req.params.id === "no")
-    {
-      res.redirect("/user/my-project");
+//     if(req.params.id === "no")
+//     {
+//       res.redirect("/user/my-project");
     
-    }else{
+//     }else{
 
       
-      Project.deleteOne({_id : req.params.id})
-      .then((success)=>{
+//       Project.deleteOne({_id : req.params.id})
+//       .then((success)=>{
 
-        if(success)
-        {
-          console.log(`Deleted Successfully`);
-          res.redirect("/user/my-project")
+//         if(success)
+//         {
+//           console.log(`Deleted Successfully`);
+//           res.redirect("/user/my-project")
          
-        }else{
+//         }else{
 
-          res.status(500).send("There was an error occured while deleting the project");
+//           res.status(500).send("There was an error occured while deleting the project");
           
-        }
+//         }
         
-      });
+//       });
 
-    }
+//     }
 
-  })
+//   })
 module.exports = {
 
   router
