@@ -10,11 +10,17 @@ const Schema = mongoose.Schema({
     required : true,
   },
 
-  Amount : {
+  TargetAmount : {
 
       type : String,
       required: true,
 
+  },
+
+  CurrentAmount : {
+
+    type : Number,
+    required : true,
   },
 
   Validity :{
@@ -54,6 +60,12 @@ const Schema = mongoose.Schema({
 
     type : Date,
     required : true,
+  },
+
+  Supporter : {
+
+    type : Array,
+    default : [],
   }
 
 });
