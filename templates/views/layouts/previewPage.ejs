@@ -25,7 +25,8 @@
   </head>
   <body>
     <% if(typeof StoryTitle === 'undefined' || typeof Amount === 'undefined' ||
-    typeof Validity === 'undefined' ) { %>
+    typeof Validity === 'undefined' || StoryTitle =='' || Amount =='' ||
+    Validity =='') { %>
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
       <p>Information Error -------------</p>
       <a style="color: #000" href="/GeneralSettings">

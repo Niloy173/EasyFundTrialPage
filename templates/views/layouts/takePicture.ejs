@@ -21,10 +21,14 @@
     <link rel="stylesheet" href="/css/project/taking_picture.css" />
   </head>
   <body>
-    <div id="error-div" class="child">
+    <div class="child">
       <% if(typeof message != 'undefined') { %>
 
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <div
+        id="error-div"
+        class="alert alert-warning alert-dismissible fade show"
+        role="alert"
+      >
         <%= message %>
         <button
           id="error-btn"

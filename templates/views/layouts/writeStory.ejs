@@ -28,7 +28,7 @@
   
       <div id="error-div" class="alert alert-warning alert-dismissible fade show" role="alert">
         <%= error.msg %> 
-      <button id="error-btn" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      <button  id="error-btn" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div> 
   
       <% }) %>
@@ -147,7 +147,9 @@
         
         error_div[index].addEventListener("click",function(){
 
-          this.parentNode.remove();
+           this.remove();
+           // it should be checked
+          
         })
         
       }
