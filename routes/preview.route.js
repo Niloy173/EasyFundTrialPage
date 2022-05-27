@@ -76,7 +76,9 @@ router.get("/",login_check,(req,res,next)=>{
   //  ProjectDocument.Userpicture = req.user.picturelink;
 
    /* ---- project info --------------------*/
-    ProjectDocument.Amount = req.query.Amount;
+    ProjectDocument.TargetAmount = req.query.Amount;
+    ProjectDocument.Supporter = [];
+    ProjectDocument.CurrentAmount = 0;
     ProjectDocument.Validity = req.query.Validity;
     ProjectDocument.StoryTitle = req.query.StoryTitle;
     ProjectDocument.MainStory = req.query.Main_story;

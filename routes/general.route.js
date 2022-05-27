@@ -17,8 +17,7 @@ function login_check(req,res,next){
   {
     res.redirect("/login");
   }else{
-
-    next();
+         next();
   }
 }
 
