@@ -43,6 +43,46 @@
             font-size: 23px;
           "
         >
+          people who supported :
+          <label id="profile_count"> <%= supporters_length %></label>
+        </p>
+
+        <div style="display: flex" id="supporters" class="supporters">
+          <% if (supporter_profile.length != 0) { %>
+
+          <div id="support-profile" class="supported_user_profile">
+           <% for(var  i=0; i<supporter_profile.length; i++)  {%>     <!--this will be changed later -->
+            <img
+              style="
+                border-radius: 50%;
+                width: 70px;
+                height: 70px;
+                border: 1px solid black;
+                margin: 0 10px;
+              "
+              src="<%= supporter_profile[i].picturelink %>"
+              alt="profilePic"
+              title="<%= supporter_profile[i].username %>"
+            />
+
+            <% } %>
+          </div>
+
+          <% } else { %>
+
+          <p>There is no supporter yet</p>
+
+          <% } %>
+        </div>
+
+        <p
+          style="
+            margin: 30px 0 20px;
+            text-align: left;
+            font-weight: bold;
+            font-size: 23px;
+          "
+        >
           Story
         </p>
 
@@ -90,16 +130,21 @@
       <div class="user_story_right_side">
         <div class="collected_money_section">
           <p class="amount_head">collected money</p>
-          <p class="amount">৳ <label style="font-size: 22px"> 0 </label></p>
+          <p class="amount">
+            ৳
+            <label id="curr_amount" style="font-size: 22px">
+              <%= element["CurrentAmount"] %>
+            </label>
+          </p>
 
           <div class="progress">
-            <progress id="file" value="20" max="100">0%</progress>
+            <progress id="progress" value="0" max="100"></progress>
           </div>
 
           <p
             style="margin: 10px 0; color: rgb(134, 129, 129); font-weight: bold"
           >
-            Goal : ৳ <label id="goal"> <%= element["Amount"] %></label>
+            Goal : ৳ <label id="goal"> <%= element["TargetAmount"] %></label>
           </p>
         </div>
 
@@ -115,7 +160,14 @@
 
         <div class="support_section">
           <div class="support_option">
-            <p>৳ <%= OtherUser %></p>
+            <p>
+              <a
+                style="text-decoration: none; color: aliceblue"
+                href="/story/project/<%= element['_id'] %>/payment"
+              >
+                ৳ <%= OtherUser %>
+              </a>
+            </p>
           </div>
 
           <p
@@ -177,12 +229,13 @@
       </div>
 
       <div class="copy_link">
-        <input type="links/" value="<%= RequestedUrl %>"" width="70%" />
-        <button>Copy</button>
+        <input readonly id="project-link" type="links/" value="<%= RequestedUrl
+        %>"" width="70%" />
+        <button id="copy-btn" onclick="CopyLink()">copy</button>
       </div>
     </div>
 
-    <script>
+    <script defer>
       window.setTimeout(function () {
         document.getElementById("mainStory").style.height =
           document.getElementById("mainStory").scrollHeight + "px";
