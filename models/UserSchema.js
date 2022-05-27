@@ -32,6 +32,12 @@ const UserSchema = mongoose.Schema({
 
     data : Buffer,
     contentType : String,
+  },
+
+  verified : {
+
+    type : Boolean,
+    default : false,
   }
 
 
