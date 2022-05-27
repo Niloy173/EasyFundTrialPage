@@ -51,7 +51,7 @@
       </div>
   
       <p class="amount_section">
-        Target Amount : $<%= element["Amount"] %>
+        Target Amount : $<%= element["TargetAmount"] %>
       </p>
     </div>
   </a>
@@ -61,16 +61,19 @@
 </div>
   </body>
 
-  <script src="/js/homepage/Homepage.js" defer></script>
-  <script src="/js/homepage/FeatureProject.js" defer></script>
   <script>
     function opennav() {
       document.getElementById("mySidenav").style.width = "250px";
+      document.getElementById("mySidenav").style.right = "0"
     }
-    function closeNav() {
-      document.getElementById("mySidenav").style.width = "0";
+    function closeUserNav() {
+      document.getElementById("mySidenav").style.right = "-250px";
     }
 
 
   </script>
+
+  <script src="/js/homepage/Homepage.js" defer></script>
+  <script src="/js/homepage/FeatureProject.js" defer></script>
+ 
 </html>
