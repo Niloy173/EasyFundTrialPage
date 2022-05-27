@@ -21,6 +21,7 @@ router.get("/google/redirect",passport.authenticate('google',{failureRedirect : 
 
   try {
     
+  
 
     res.redirect("/userend");
     
