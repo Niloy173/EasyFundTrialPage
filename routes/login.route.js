@@ -5,9 +5,15 @@ const router = express.Router();
 router.use(express.json())
 
 
-router.get("/",(req,res)=>{
+router.get("/login",(req,res)=>{
 
     res.render("login")
+})
+
+router.get("/logout",(req,res)=>{
+
+  req.logOut();
+  res.redirect("/");
 })
 
 router.get("/google",passport.authenticate('google',{
@@ -17,7 +23,7 @@ router.get("/google",passport.authenticate('google',{
 
 }));
 
-router.get("/google/redirect",passport.authenticate('google',{failureRedirect : '/login/google'}),(req,res)=>{
+router.get("/google/redirect",passport.authenticate('google',{failureRedirect : '/auth/google'}),(req,res)=>{
 
   try {
     
