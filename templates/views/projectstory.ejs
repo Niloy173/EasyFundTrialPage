@@ -37,7 +37,7 @@
 
         <p
           style="
-            margin: 30px 0 20px;
+            margin: 30px 0 10px;
             text-align: left;
             font-weight: bold;
             font-size: 23px;
@@ -47,37 +47,49 @@
           <label id="profile_count"> <%= supporters_length %></label>
         </p>
 
+        <hr style=" width: 650px" />
+
         <div style="display: flex" id="supporters" class="supporters">
           <% if (supporter_profile.length != 0) { %>
 
-          <div id="support-profile" class="supported_user_profile">
+          <div style="padding: 20px 0 10px 0;" id="support-profile" class="supported_user_profile">
            <% for(var  i=0; i<supporter_profile.length; i++)  {%>     <!--this will be changed later -->
+          <a  href="#">
+
             <img
-              style="
-                border-radius: 50%;
-                width: 70px;
-                height: 70px;
-                border: 1px solid black;
-                margin: 0 10px;
-              "
-              src="<%= supporter_profile[i].picturelink %>"
-              alt="profilePic"
-              title="<%= supporter_profile[i].username %>"
-            />
+            style="
+              border-radius: 50%;
+              width: 70px;
+              height: 70px;
+              border: 1px solid black;
+              margin: 0 10px;
+            "
+            src="<%= supporter_profile[i].picturelink %>"
+            alt="profilePic"
+            title="<%= supporter_profile[i].username %>"
+          />
+          </a>
 
             <% } %>
           </div>
 
           <% } else { %>
 
-          <p>There is no supporter yet</p>
+          <div style="width: 100%; margin: 30px 0 10px 0; " class="some_suggestion">
+            <p  style="text-align: center; font-size: 17px;">Let's be the first one to help!</p>
+            <p style="text-align: center; font-size: 14px; margin: 15px 0;">By sharing more people will know about the project, and it will be more likely to be supported.</p>
+
+           <div style="display: flex; justify-content : center; font-size: 16px;" class="share-option">
+            <a style="color: #12af9a!important;"  href="#Help_by_sharing"> Help by sharing</a>
+           </div>
+          </div>
 
           <% } %>
         </div>
 
         <p
           style="
-            margin: 30px 0 20px;
+            margin: 30px 0 15px 0;
             text-align: left;
             font-weight: bold;
             font-size: 23px;
@@ -86,9 +98,7 @@
           Story
         </p>
 
-        <hr style="border: 1px solid rgb(149, 149, 149); width: 650px" />
-
-        <br />
+      
 
         <div class="story_teller">
           <div class="user_profile">
@@ -191,12 +201,8 @@
         <% } %>
 
         <div class="sharing_section">
-          <button>
-            <a
-              style="text-decoration: none; color: black"
-              href="#Help_by_sharing"
-              >Help by sharing</a
-            >
+          <button style="color: #12af9a!important;" onclick="ScrollDown()">
+            Help by sharing
           </button>
         </div>
 
@@ -240,6 +246,11 @@
         document.getElementById("mainStory").style.height =
           document.getElementById("mainStory").scrollHeight + "px";
       });
+
+      function ScrollDown()
+      {
+        window.scrollTo(0, document.body.scrollHeight);
+      }
     </script>
 
     <script src="/js/userend/MainStory.js" defer></script>
