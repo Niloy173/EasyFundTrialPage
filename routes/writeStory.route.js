@@ -21,7 +21,7 @@ function login_check(req,res,next){
 
   if(! req.user)
   {
-    res.redirect("/login");
+    res.redirect("/auth/login");
   }else{
 
     next();
@@ -41,6 +41,9 @@ router.route('/')
 
     check('Title','Title field is empty')
     .not().isEmpty(),
+
+    check('story','Story field is empty')
+    .not().isEmpty()
 
 
 

@@ -13,7 +13,7 @@ function login_check(req,res,next){
 
   if(! req.user)
   {
-    res.redirect("/login");
+    res.redirect("/auth/login");
   }else{
 
     next();
