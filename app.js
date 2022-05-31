@@ -19,7 +19,7 @@ app.use(express.json());
 // creating session for logged in user 
 app.use(cookieSession({
 
-  maxAge : "24*3600*1000", // define how much time left in this session .it will reset in every request
+  maxAge : 24*3600*1000, // define how much time left in this session .it will reset in every request
   keys : [session.cookieKey],
   
 
@@ -111,7 +111,7 @@ app.set("views",templatePath);
 /*  project related all route */
 app.use('/',HomeRoute);
 app.use('/Homepage',HomeRoute);
-app.use('/login',loginRoute.router);
+app.use('/auth',loginRoute.router);
 app.use('/userend',userRoute.router);
 //  app.use('/category',categoryRoute);
 app.use('/DiscoverProjects',discoverProject); 
@@ -142,16 +142,6 @@ app.use('/category/others',othersRoute.router);
 
 
 
-
-/*--------------------*/
-
-app.use('/logout',(req,res)=>{
-
-  req.logOut();
-  res.redirect("/");
-})
-
-/*----------------------*/
 
 
 /*-------------------*/
