@@ -11,11 +11,6 @@
  const file_input = document.getElementById("file-input"); // for selecting multiple files like .jpeg .jpg .png
  const content = document.getElementById("content"); // story div
 
-
-
-
-
-
 // catching the selected word or sentence for later use such as Bold
 document.addEventListener("selectionchange",function(){
 
@@ -54,9 +49,6 @@ document.addEventListener("selectionchange",function(){
 function preview()
 {
 
-  // console.log(file_input.files.length)
- 
-
   for(let i of file_input.files)
   {
     let reader = new FileReader();
@@ -87,11 +79,12 @@ function preview()
     // image_container.appendChild(figure)
     content.insertAdjacentElement("beforeend",figure)
     reader.readAsDataURL(i);
+    
 
     
   }
 
-  // console.log(image_file_name) 
+  //  console.log(image_file_name) 
 
 }
 
@@ -138,3 +131,6 @@ function charDecrease(obj)
     document.getElementById("next").style.display = "block";
   }
 }
+
+
+
