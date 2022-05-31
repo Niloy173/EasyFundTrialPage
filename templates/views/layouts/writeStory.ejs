@@ -1,4 +1,3 @@
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -45,9 +44,8 @@
           
           <a class="important-msg" href="#"">Tips to write a good story</a>
     </div>
-
+    
     <form method="post">
-
 
     <div class="title-field">
 
@@ -57,13 +55,11 @@
       <div id="error-msg" style="display: none;"></div>
 
     </div>
-
+    
     <div class="short-note">
 
       <p class="important-paragraph"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat,
          maxime saepe ipsum laudantium necessitatibus suscipit!</p>
-
-
          <a class="important-msg" href="#"">How to write a good story ?</a>
     </div>
 
@@ -107,12 +103,14 @@
       <!-- Testing purpose -->
       <textarea onkeyup="charDecrease(this)" name="story" id="content" class="txt-area"  placeholder="Write your story"></textarea> 
       <p  style="font-size: 13px; display: flex; justify-content: end;" id="storychar">5000</p>
+
+      </div>
       
 
       <!-- <div  contenteditable="true" id="content" class="txt-area" > 
       </div> --> 
 
-    </form>
+   
 
 
       <div class="next-page">
@@ -125,10 +123,12 @@
         </a>
       </div>
 
+    </form>
+
     
     </div>
 
-    </div>
+    
 
  
 
@@ -146,7 +146,6 @@
       for (let index = 0; index < error_div.length; index++) {
         
         error_div[index].addEventListener("click",function(){
-
            this.remove();
            // it should be checked
           
