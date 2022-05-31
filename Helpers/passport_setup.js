@@ -21,7 +21,7 @@ passport.deserializeUser((id,done)=>{
 
 passport.use(new GoogleStrategy({
 
-    callbackURL : '/login/google/redirect',
+    callbackURL : '/auth/google/redirect',
       clientID : google.clientID,
       clientSecret : google.clientSecret,
 },(accessToken, refreshToken, profile,done)=>{
@@ -34,7 +34,7 @@ passport.use(new GoogleStrategy({
   
          if(currUser)
          {
-          console.log(profile)
+
            console.log("signed in with "+currUser.username);
            done(null,currUser);
          }else{
