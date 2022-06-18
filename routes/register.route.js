@@ -42,6 +42,7 @@ router.get("/",(req,res)=>{
 
 // verified page route
 router.get("/verified",(req,res)=>{
+ 
   res.sendFile(path.join(__dirname+"./../templates/views/message/confirmation.html"));
 })
 
@@ -73,11 +74,21 @@ router.get("/verify/:userId/:uniqueString",(req,res)=>{
                     .then(() => {
 
                       let message = "Link has expired. Please sign up again. ";
-                      res.redirect(`/register/verified/error=true&message=${message}`);
-                   
+                      // res.redirect(`/register/verified/error=true&message=${message}`);
+                      res.redirect(url.format({
+
+                        pathname : "/register/verified/",
+                        query : {
+                
+                          error : true,
+                          message : message,
+                        }
+                      }));
+
                     })
                     .catch((error) => {
 
+                      console.log(error);
                       let message = "Clearing user with expired unique string failed";
                       res.redirect(`/register/verified/error=true&message=${message}`);
                    
@@ -155,6 +166,7 @@ router.get("/verify/:userId/:uniqueString",(req,res)=>{
     }else{
 
       let message = encodeURIComponent("Account record doesn't exist or has been verified already. Please sign up or log in.");
+    
       res.redirect(url.format({
 
         pathname : "/register/verified/",
