@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <style></style>
+  </head>
+  <body>
+    <form id="personal" method="post">
+      <div class="fullname">
+        <input
+          type="text"
+          id="fullname"
+          name="fullname"
+          placeholder="fullname"
+        />
+        <p class="error fullname-error"></p>
+      </div>
+
+      <div class="address">
+        <input type="text" id="address" name="address" placeholder="address" />
+        <p class="error address-error"></p>
+      </div>
+
+      <input type="submit" value="submit" />
+    </form>
+
+    <script>
+      const form = document.querySelector("#personal");
+
+      try {
+        form.onsubmit = async function (e) {
+          e.preventDefault();
+
+          const errorplaceholder = document.querySelectorAll("p.error");
+
+          for (let i = 0; i < errorplaceholder.length; i++) {
+            errorplaceholder[i].style.display = "none";
+          }
+
+          const formData = new FormData(form);
+
+          console.log([...formData]);
+          const plainFormData = Object.fromEntries(formData.entries());
+          const JsonData = JSON.stringify(plainFormData);
+
+          const fetchOption = {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+              Accept: "application/json",
+            },
+            body: JsonData,
+          };
+
+          const response = await fetch("/personal/information", fetchOption);
+
+          const result = await response.json();
+
+          if (result.errors) {
+            Object.keys(result.errors).forEach((fieldName) => {
+              const errorHolder = document.querySelector(`.${fieldName}-error`);
+              errorHolder.textContent = result.errors[fieldName].msg;
+
+              errorHolder.style.display = "block";
+            });
+          } else {
+            window.location.href = "/protected";
+          }
+        };
+      } catch (error) {
+        console.log(error);
+      }
+    </script>
+  </body>
+</html>

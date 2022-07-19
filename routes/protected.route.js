@@ -1,29 +1,21 @@
 /* package goes here */
-const express = require('express');
-const {AuthCheck} = require("../helpers/LoginCheck");
-const cookieParser = require("cookie-parser")
+const express = require("express");
+const { AuthCheck } = require("../middlewares/common/LoginCheck");
+
+const { logout } = require("../controllers/userend/logout");
 /*----------*/
-
-
 
 const router = express.Router();
 
-router.use(express.json())
-router.use(cookieParser())
-
-router.get("/",AuthCheck,(req,res)=>{
-
- 
-  res.render("protected",{
-
-    userId : req.userId,
-    email : req.useremail,
+router.get("/", AuthCheck, (req, res) => {
+  res.render("protected", {
+    userId: req.user.userId,
+    email: req.user.useremail,
   });
- 
-})
+});
 
+router.delete("/", logout);
 
 module.exports = {
-
   router,
-}
+};

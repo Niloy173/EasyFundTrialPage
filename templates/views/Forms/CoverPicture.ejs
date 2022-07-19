@@ -1,0 +1,114 @@
+<html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title><%= title %></title>
+      <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+        crossorigin="anonymous"
+      />
+      <link rel="stylesheet" href="./css/CoverPicture.css" />
+    </head>
+    <body>
+      <div class="cover-picture">
+        <% if(typeof message != 'undefined') { %>
+        <div
+          style="margin: 0.75rem 1rem"
+          id="error-div"
+          class="alert alert-warning alert-dismissible fade show"
+          role="alert"
+        >
+          <%= message %>
+          <button
+            id="error-btn"
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+        <% } %>
+
+        <h3>Select a cover picture</h3>
+
+        <div class="important-notice">
+          <p>
+            You will receive more support if your cover picture is related with
+            the content of your project.
+          </p>
+        </div>
+
+        <form
+          id="cover-picture-form"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <div class="image-container">
+            <img id="display_img" src="/img/blank_img.jpg" alt="blank_image" />
+          </div>
+
+          <div class="select-image">
+            <input
+              type="file"
+              accept="image/jpg, image/png, image/jpeg"
+              id="file"
+              name="avatar"
+            />
+            <label id="img-input" for="file"> Choose a picture</label>
+          </div>
+
+          <div class="page-section">
+            <div class="back-page">
+              <a style="text-decoration: none" href="/general"
+                ><button type="button">Back</button></a
+              >
+            </div>
+            <div id="next_page" class="next-page">
+              <button id="sub-id" disabled type="submit">Next</button>
+            </div>
+          </div>
+
+          <!-- end here -->
+        </form>
+      </div>
+
+      <script>
+        // Image DIsplaying in the view side
+        let image_input = document.querySelector("#file");
+        let form = document.querySelector("#cover-picture-form");
+        let reader = new FileReader();
+
+        // window.onload = function (event) {
+        //   form.onsubmit = function (e) {
+        //     e.preventDefault();
+        //   };
+        // };
+
+        image_input.addEventListener("change", function () {
+          if (this.files && this.files[0]) {
+            let display_image = document.querySelector("#display_img");
+            reader.addEventListener("load", function () {
+              display_image.setAttribute("src", reader.result);
+            });
+
+            reader.readAsDataURL(this.files[0]);
+            document.getElementById("sub-id").disabled = false;
+          }
+        });
+        // /------------------------------/
+
+        /* event click for closing the error related div */
+        const error_div = document.querySelectorAll("#error-btn");
+        for (let index = 0; index < error_div.length; index++) {
+          error_div[index].addEventListener("click", function () {
+            this.parentNode.remove();
+          });
+        }
+      </script>
+    </body>
+  </html>
+</html>

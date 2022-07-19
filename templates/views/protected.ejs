@@ -12,6 +12,17 @@
     <p>Requested User Email : <%= email %></p>
     <p>Requested User ID : <%= userId %></p>
 
-    <a href="/logout">logout</a>
+    <a href="#" onclick="logout()">logout</a>
   </body>
+  <script>
+    function logout() {
+      fetch("/protected", {
+        method: "DELETE",
+      });
+
+      setTimeout(() => {
+        window.location.replace("/");
+      }, 1000);
+    }
+  </script>
 </html>

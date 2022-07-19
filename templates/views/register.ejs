@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Easy Fund | Login</title>
+    <title><%= title %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <script type="application/x-javascript">
@@ -27,7 +27,7 @@
             <% if(typeof message != 'undefined') { %>
 
             <label>
-              <span id="msg" style="color: rgb(255, 255, 255); margin: 1em 0"
+              <span id="msg" style="color: rgb(238, 0, 0); margin: 1em 0"
                 ><%= message %></span
               >
             </label>
@@ -37,11 +37,21 @@
             <label>
               <span
                 id="msg"
-                style="display: none; color: rgb(255, 255, 255); margin: 1em 0"
+                style="display: none; color: rgb(238, 0, 0); margin: 1em 0"
               ></span>
             </label>
 
             <% } %>
+
+            <input
+              class="text email"
+              type="text"
+              name="username"
+              id="user-name"
+              onkeyup="CheckUsername(this)"
+              placeholder="@ username"
+              required
+            />
 
             <input
               class="text email"
