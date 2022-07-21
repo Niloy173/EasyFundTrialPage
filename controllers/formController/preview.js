@@ -17,8 +17,9 @@ async function GetRenderPreview(req, res, next) {
     Attachment: req.query.attachment,
 
     // user related Information
-    username: CurrentUser[0].username,
+    fullname: CurrentUser[0].fullname,
     picture: CurrentUser[0].profile,
+    university: CurrentUser[0].university_Name,
   });
 }
 

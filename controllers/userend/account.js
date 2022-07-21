@@ -4,6 +4,7 @@ const { User } = require("../../models/UserSchema");
 
 async function doRenderAccount(req, res, next) {
   const CurrentUser = await User.find({ _id: req.user.userId });
+  // console.log(CurrentUser);
   res.render("userend/account", {
     CurrentUser,
   });
@@ -15,37 +16,21 @@ async function UpdateAccountInformation(req, res, next) {
     const FullPath = fs.readdirSync(
       path.join(__dirname + "/../" + "/../public/profilePicture/")
     )[0];
+
     const ext_name = path.extname(FullPath);
 
     const UserUpdate = await User.updateOne(
       { _id: req.user.userId },
       {
         $set: {
-          username: req.body.username.trim(),
-          profile: FullPath,
+          profileImage: FullPath,
         },
       },
       { new: true, useFindAndModify: false }
     );
 
     setTimeout(() => {
-      res.clearCookie(process.env.COOKIE_NAME);
-      res.redirect("/login");
-    }, 1000);
-  } else if (req.body.username) {
-    const UserUpdate = await User.updateOne(
-      { _id: req.user.userId },
-      {
-        $set: {
-          username: req.body.username.trim(),
-        },
-      },
-      { new: true, useFindAndModify: false }
-    );
-
-    setTimeout(() => {
-      res.clearCookie(process.env.COOKIE_NAME);
-      res.redirect("/login");
+      res.redirect("/");
     }, 1000);
   } else {
     res.redirect("/user/account");

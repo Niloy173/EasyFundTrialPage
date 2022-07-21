@@ -11,9 +11,13 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
     rel="stylesheet">
 
+    <link rel="stylesheet" href="/css/usernavbar.css" />
     <link rel="stylesheet" href="./css/WriteStory.css">
+   
   </head>
   <body>
+
+    <%- include("../../partials/navbar.ejs") %>
 
     <div class="write-story">
 
@@ -121,8 +125,8 @@
                     <button  id="next" type="submit" >Next</button>
                   </div>
             
-                  <div class="back-page">
-                    <a style="text-decoration: none;" href="/layouts/TakingPicture">
+                  <div onclick="BackPressed()" class="back-page">
+                    <a style="text-decoration: none;" href="#">
                       <button type="button" >back</button>
                     </a>
                   </div>
@@ -131,11 +135,44 @@
 
     </div>
 
+   
     <script>
+
+      sessionStorage.setItem("CurrentURL",window.location.href);
 
      
       const file_input = document.getElementById("file-input"); // for selecting images
       const content_image = document.getElementById("content-image"); // image Gallery container
+
+      // preventing refresh form submission
+       window.onbeforeunload = (e) => {
+        e.preventDefault();
+       
+       
+      };
+
+
+      // backpressed 
+      function BackPressed()
+      {
+        if(sessionStorage.getItem("CurrentURL").split("/").pop() === "story")
+        {
+          if(confirm("Are you sure you want to leave this page? You will lost all the contents you are editing & have to start form the Begining"))
+          {
+            
+            const response = fetch("/story/back",{
+              method : "GET",
+            });
+
+            window.location.href = "/general";
+           
+            
+          }else{
+            
+            
+          }
+        }
+      }
 
       /* Live character count for title */
 
@@ -218,7 +255,21 @@
         }
 
   
-       
+       function opennav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("mySidenav").style.right = "0";
+      }
+      function closeUserNav() {
+        document.getElementById("mySidenav").style.right = "-250px";
+      }
+
+      // while if anyone pressed back button from this page
+     
+      
+
+
+    
+
 
     </script>
 

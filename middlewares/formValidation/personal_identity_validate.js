@@ -1,14 +1,51 @@
 const { check, validationResult } = require("express-validator");
 
+const { User } = require("../../models/UserSchema");
+
 const doValidatePersonal = [
   check("fullname")
     .isLength({ min: 1 })
-    .withMessage("Fullname is required")
+    .withMessage("fullname is required")
     .isAlpha("en-US", { ignore: " -" })
     .withMessage("fullname must not contain anything other than alphabet")
     .trim(),
 
-  check("address").not().isEmpty().withMessage("Address is required").trim(),
+  check("department")
+    .isLength({ min: 1 })
+    .withMessage("department is required")
+    .isAlpha("en-US", { ignore: " -" })
+    .withMessage("fullname must not contain anything other than alphabet")
+    .trim(),
+
+  check("universityname")
+    .isLength({ min: 1 })
+    .withMessage("university name is required")
+    .isAlpha("en-US", { ignore: " -" })
+    .withMessage("fullname must not contain anything other than alphabet")
+    .trim(),
+
+  check("universityid")
+    .isLength({ min: 1 })
+    .withMessage("university id is required")
+    .trim(),
+
+  check("phone")
+    .isMobilePhone("bn-BD", {
+      strictMode: true,
+    })
+    .withMessage("Mobile number must be a valid Bangladeshi mobile number")
+    .custom(async (value) => {
+      try {
+        const user = await User.findOne({ mobile: value });
+
+        if (user.length > 1) {
+          throw createError("Mobile already is use!");
+        }
+      } catch (error) {
+        throw createError(error.message);
+      }
+    })
+    .trim(),
 ];
 
 const doValidatePersonalHandler = function (req, res, next) {

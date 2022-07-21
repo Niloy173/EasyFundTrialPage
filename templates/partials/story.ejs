@@ -31,9 +31,13 @@
 
       <div class="story_teller">
         <div class="user_profile">
-          <% if(picture) { %> <img style="border-radius: 50%; width: 80px;
-          border: 1px solid black" src="/profilePicture/<%= picture %>
-          alt="profilePic" /> <% } else { %>
+          <% if(picture) { %>
+          <img
+            style="border-radius: 50%; width: 80px; border: 1px solid black"
+            src="/profilePicture/<%= picture %>"
+            alt="profilePic"
+          />
+          <% } else { %>
 
           <img
             style="border-radius: 50%; width: 80px; border: 1px solid black"
@@ -44,8 +48,8 @@
         </div>
 
         <div class="user_identity">
-          <p class="username"><%= username %></p>
-          <p class="identity">Identity Verified</p>
+          <p class="username"><%= fullname %></p>
+          <p class="identity"><%= university %></p>
         </div>
       </div>
 

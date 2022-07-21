@@ -1,0 +1,115 @@
+:root {
+  --body-font: "Poppins", sans-serif;
+  --bigger-font-size: 1.8rem;
+  --h2-font-size: 1.22rem;
+  --normal-font-size: 0.911rem;
+}
+
+/* margins */
+
+:root {
+  --mb-1: 0.5rem;
+  --mb-2: 1rem;
+  --mb-3: 1.5rem;
+  --mb-4: 2rem;
+  --mb-5: 2.5rem;
+  --mb-6: 3rem;
+  --mb-7: 2.2rem;
+  --mb-8: 3.3rem;
+  --mb-9: 7rem;
+  --mb-10: 5rem;
+}
+
+:root {
+  --first-color: #4070f4;
+  --second-color: #0e2431;
+  --third-color: #f2f2f2;
+  --fourth-color: rgb(0, 161, 161);
+  --primary: #171c2a;
+  --secondary: #11141f;
+  --tertiary: #1f222e;
+  --dark: #0e0e12;
+  --green: #52d794;
+  --blue: #00b3bd;
+  --light: #fff;
+  --red: indianred;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  margin: 0;
+}
+
+span {
+  color: #757575;
+}
+
+.personal-information {
+  position: relative;
+  width: 500px;
+  margin: var(--mb-9) auto;
+  padding: var(--mb-5) auto;
+}
+.personal-information .head {
+  font-size: var(--mb-3);
+}
+
+input {
+  width: 93%;
+  padding: 0.675rem 1rem;
+  font-size: 1rem;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.category {
+  font-size: 1.2rem;
+}
+
+.phone-div input {
+  margin-top: 12px;
+}
+
+.university-name input {
+  margin-top: 12px;
+}
+
+.university-id input {
+  margin-top: 12px;
+}
+
+.submit-option {
+  margin: 2rem 0;
+}
+
+.submit-option input {
+  text-align: center;
+  width: 100%;
+  border: none;
+  font-size: 1.22em;
+}
+
+.submit-option input:hover {
+  border: none;
+}
+
+.submit-option input:nth-child(1) {
+  background-color: #00b3bd;
+  color: #f2f2f2;
+  margin-bottom: 10px;
+}
+.submit-option input:nth-child(2) {
+  background: none;
+}
+
+.error {
+  color: red;
+}
+
+.error_input {
+  border: 1px solid red;
+}
+input:hover {
+  border: 1px solid var(--fourth-color);
+}

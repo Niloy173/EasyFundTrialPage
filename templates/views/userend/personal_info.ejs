@@ -5,27 +5,164 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
-    <style></style>
+
+    <link rel="stylesheet" href="/css/personal_info.css" />
   </head>
   <body>
-    <form id="personal" method="post">
-      <div class="fullname">
-        <input
-          type="text"
-          id="fullname"
-          name="fullname"
-          placeholder="fullname"
-        />
-        <p class="error fullname-error"></p>
-      </div>
+    <% if(typeof CurrentUser != 'undefind') { %>
+    <div class="personal-information">
+      <h3 class="head">Personal information</h3>
+      <span>
+        Please enter the following information to verify your identity.This
+        information assures that you have fullfilled your profile & one step
+        closer to create a porject.
+      </span>
 
-      <div class="address">
-        <input type="text" id="address" name="address" placeholder="address" />
-        <p class="error address-error"></p>
-      </div>
+      <% CurrentUser.forEach((user) => { %>
 
-      <input type="submit" value="submit" />
-    </form>
+      <form action="" id="personal" method="post">
+        <div class="name-div">
+          <h3 class="category">Full name</h3>
+
+          <% if(user.fullname) { %>
+          <input
+            type="text"
+            name="fullname"
+            placeholder="Eg : john wick"
+            value="<%= user.fullname %>"
+          />
+
+          <% } else { %>
+
+          <input type="text" name="fullname" placeholder="Eg : john wick" />
+          <% } %>
+          <p
+            style="
+              font-size: 13px;
+              display: flex;
+              justify-content: end;
+              margin: 2px;
+            "
+            id="charnum"
+          >
+            0/60
+          </p>
+          <p class="error fullname-error" style="display: none"></p>
+        </div>
+
+        <div class="phone-div">
+          <h3 class="category">phone</h3>
+
+          <span>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
+            similique accusantium nesciunt
+          </span>
+
+          <% if(user.phone) { %>
+
+          <input
+            type="text"
+            name="phone"
+            placeholder="Eg : +880193484333"
+            value="<%= user.phone %>"
+          />
+
+          <% } else{ %>
+
+          <input type="text" name="phone" placeholder="Eg : +880193484333" />
+
+          <% } %>
+          <p class="error phone-error" style="display: none"></p>
+        </div>
+
+        <div class="university-name">
+          <h3 class="category">University name</h3>
+
+          <span>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
+            similique accusantium nesciunt
+          </span>
+
+          <% if(user.university_Name) { %>
+
+          <input
+            type="text"
+            name="universityname"
+            placeholder="Eg : daffodil international university"
+            value="<%= user.university_Name %>"
+          />
+
+          <% } else{ %>
+
+          <input
+            type="text"
+            name="universityname"
+            placeholder="Eg : daffodil international university"
+          />
+
+          <% } %>
+          <p class="error universityname-error" style="display: none"></p>
+        </div>
+
+        <div class="department">
+          <h3 class="category">Department</h3>
+
+          <% if(user.department){ %>
+
+          <input
+            type="text"
+            value="<%= user.department %>"
+            name="department"
+            placeholder="Eg : BBA"
+          />
+          <% }else{ %>
+          <input type="text" name="department" placeholder="Eg : BBA" />
+          <% } %>
+          <p class="error department-error" style="display: none"></p>
+        </div>
+
+        <div class="university-id">
+          <h3 class="category">University ID</h3>
+
+          <span>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
+            similique accusantium nesciunt
+          </span>
+
+          <% if(user.university_Id){ %>
+
+          <input
+            type="text"
+            name="universityid"
+            placeholder="Eg : 128-11-2356"
+            value="<%= user.university_Id %>"
+          />
+
+          <% }else{ %>
+
+          <input
+            type="text"
+            name="universityid"
+            placeholder="Eg : 128-11-2356"
+          />
+
+          <% } %>
+
+          <p class="error universityid-error" style="display: none"></p>
+        </div>
+
+        <% }) %>
+
+        <p class="error common-error" style="display: none"></p>
+
+        <div class="submit-option">
+          <input type="submit" value="submit" />
+          <input onclick="Stay()" type="button" value="cancel" />
+        </div>
+      </form>
+    </div>
+
+    <% } %>
 
     <script>
       const form = document.querySelector("#personal");
@@ -35,6 +172,14 @@
           e.preventDefault();
 
           const errorplaceholder = document.querySelectorAll("p.error");
+          const input_placeholders =
+            document.querySelectorAll("input.error_input");
+
+          if (input_placeholders.length > 0) {
+            for (let index = 0; index < input_placeholders.length; index++) {
+              input_placeholders[index].classList.remove("error_input");
+            }
+          }
 
           for (let i = 0; i < errorplaceholder.length; i++) {
             errorplaceholder[i].style.display = "none";
@@ -42,7 +187,6 @@
 
           const formData = new FormData(form);
 
-          console.log([...formData]);
           const plainFormData = Object.fromEntries(formData.entries());
           const JsonData = JSON.stringify(plainFormData);
 
@@ -61,17 +205,23 @@
 
           if (result.errors) {
             Object.keys(result.errors).forEach((fieldName) => {
+              form[fieldName].classList.add("error_input");
+
               const errorHolder = document.querySelector(`.${fieldName}-error`);
               errorHolder.textContent = result.errors[fieldName].msg;
 
               errorHolder.style.display = "block";
             });
           } else {
-            window.location.href = "/protected";
+            window.location.replace("/");
           }
         };
       } catch (error) {
         console.log(error);
+      }
+
+      function Stay() {
+        window.location.reload();
       }
     </script>
   </body>

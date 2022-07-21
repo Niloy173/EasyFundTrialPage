@@ -12,7 +12,7 @@ const DecodeInformation = (req, res, next) => {
       res.locals.userInformation = decoded;
     }
   } catch (error) {
-    console.log("Not Logged In");
+    // console.log("Not Logged In");
 
     if (res.locals.html === true) {
       res.locals.userInformation = {};

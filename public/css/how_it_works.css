@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Source Serif Pro", serif;
+}
+
+.document {
+  margin: 30px auto;
+  width: 50%;
+}
+
+.startup h3 {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 25px;
+}
+
+.startup p {
+  font-size: 20px;
+  text-align: justify;
+}
+
+/*------------*/
+
+.important_points {
+  display: flex;
+  margin-top: 30px;
+}
+
+.important_points .left_side {
+  flex: 50%;
+}
+.left_side h4 {
+  font-size: 20px;
+  margin: 10px 0;
+  padding: 10px 2px;
+}
+.left_side li {
+  margin: 20px 0;
+  font-size: 18px;
+}
+.important_points .right_side {
+  flex: 50%;
+}
+.right_side h4 {
+  font-size: 20px;
+  margin: 10px 0;
+  padding: 10px 2px;
+}
+.right_side li {
+  margin: 20px 0;
+  font-size: 18px;
+}
+
+.project_section {
+  background-color: #f2f2f2;
+}
+
+.ready {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0 20px 0;
+  padding: 30px 0 0 0;
+}
+.Go_to_project {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+.project_btn {
+  padding: 15px 30px;
+  font-size: 20px;
+  background-color: rgb(52, 212, 212);
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+}
+
+.Fundpurpose {
+  margin: 10px auto;
+  padding: 30px 0;
+  width: 50%;
+}
+.Fundpurpose .related_img {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.details-para p {
+  font-size: 20px;
+  margin: 20px 0;
+  text-align: justify;
+  padding: 5px;
+}
+
+.Fundpurpose .Ques {
+  text-align: center;
+  padding: 30px 0;
+  font-size: 25px;
+}

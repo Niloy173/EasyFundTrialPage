@@ -12,8 +12,10 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/css/account.css" />
+    <link rel="stylesheet" href="/css/usernavbar.css" />
   </head>
   <body>
+    <%- include("../../partials/navbar.ejs") %>
     <form id="account" method="post" enctype="multipart/form-data">
       <p class="header">Account Settings</p>
 
@@ -37,19 +39,20 @@
       <% } %> <% CurrentUser.forEach((user) => { %>
 
       <div class="imgcontainer">
-        <% if(user.profile){ %>
+        <% if (user.profileImage == "nophoto.png") { %>
 
         <img
           id="display_img"
-          src="/profilePicture/<%= user.profile%>"
+          src="/img/<%= user.profileImage%>"
           alt="Avatar"
           class="avatar"
         />
-        <% } else { %>
+
+        <% }else{ %>
 
         <img
           id="display_img"
-          src="/img/nophoto.png"
+          src="/profilePicture/<%= user.profileImage%>"
           alt="Avatar"
           class="avatar"
         />
@@ -68,32 +71,9 @@
           >upload a picture</label
         >
       </div>
+
+      <% }) %>
       <div class="container">
-        <label for="uname"><b>Username</b></label>
-
-        <input
-          type="text"
-          id="username"
-          onkeyup="charCount(this)"
-          placeholder="username"
-          name="username"
-          value="<%= user.username %>"
-        />
-
-        <label
-          id="message"
-          style="
-            font-size: 13px;
-            display: flex;
-            justify-content: end;
-            margin: 5px 0;
-          "
-        >
-          0//20
-        </label>
-
-        <% }) %>
-
         <label for="psw"><b>Country or Region</b></label>
         <input type="text" value="Bangladesh" readonly />
 
@@ -102,36 +82,14 @@
 
       <div class="container">
         <button style="cursor: normal" type="button" class="cancelbtn">
-          <a style="text-decoration: none; color: #000" href="/user/account"
-            >cancel</a
-          >
+          <a style="text-decoration: none; color: #000" href="/">cancel</a>
         </button>
       </div>
     </form>
     <script>
       const account_form = document.querySelector("#account");
       const image_input = document.getElementById("file");
-      const username = document.querySelector("input#username");
       const reader = new FileReader();
-
-      document.getElementById("message").innerHTML =
-        username.value.length + "/" + 20;
-
-      function charCount(obj) {
-        let max = 20;
-        let currLength = obj.value.length;
-        document.getElementById("message").innerHTML = currLength + "/" + max;
-
-        if (currLength > max || currLength === 0) {
-          document.getElementById(
-            "message"
-          ).innerHTML = `<span style="color : red"> ${currLength} out of ${max} character </span>`;
-          document.getElementById("btn-save").disabled = true;
-        } else {
-          document.getElementById("message").innerHTML = currLength + "/" + max;
-          document.getElementById("btn-save").disabled = false;
-        }
-      }
 
       image_input.addEventListener("change", function () {
         if (this.files && this.files[0]) {
@@ -151,6 +109,14 @@
         error_div[index].addEventListener("click", function () {
           this.parentNode.remove();
         });
+      }
+
+      function opennav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("mySidenav").style.right = "0";
+      }
+      function closeUserNav() {
+        document.getElementById("mySidenav").style.right = "-250px";
       }
     </script>
   </body>

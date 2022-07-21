@@ -11,9 +11,12 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
         crossorigin="anonymous"
       />
+      <link rel="stylesheet" href="/css/usernavbar.css" />
       <link rel="stylesheet" href="./css/CoverPicture.css" />
     </head>
     <body>
+      <%- include("../../partials/navbar.ejs") %>
+
       <div class="cover-picture">
         <% if(typeof message != 'undefined') { %>
         <div
@@ -77,6 +80,7 @@
       </div>
 
       <script>
+        sessionStorage.setItem("CurrentURL", window.location.href);
         // Image DIsplaying in the view side
         let image_input = document.querySelector("#file");
         let form = document.querySelector("#cover-picture-form");
@@ -108,6 +112,18 @@
             this.parentNode.remove();
           });
         }
+
+        function opennav() {
+          document.getElementById("mySidenav").style.width = "250px";
+          document.getElementById("mySidenav").style.right = "0";
+        }
+        function closeUserNav() {
+          document.getElementById("mySidenav").style.right = "-250px";
+        }
+
+        window.onbeforeunload = (e) => {
+          e.preventDefault();
+        };
       </script>
     </body>
   </html>

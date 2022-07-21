@@ -20,6 +20,9 @@ const {
   doStoryValidatorHandler,
 } = require("../../middlewares/formValidation/writestory_validation");
 
+const { RemoveData } = require("../../controllers/userend/removedata");
+const { GetProfileAvatar } = require("../../helpers/profileAvatar");
+
 /* app object */
 const router = express.Router();
 
@@ -27,6 +30,7 @@ router.get(
   "/",
   decorateHtmlResponse("write a story"),
   AuthCheck,
+  GetProfileAvatar,
   GetRenderStory
 );
 
@@ -34,11 +38,14 @@ router.post(
   "/",
   decorateHtmlResponse("write a story"),
   AuthCheck,
+  GetProfileAvatar,
   attachmentUpload,
   doStoryValidator,
   doStoryValidatorHandler,
   PostRenderStory
 );
+
+router.get("/back", RemoveData); // when back pressed
 
 module.exports = {
   router,

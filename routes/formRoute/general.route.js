@@ -15,6 +15,8 @@ const {
   doGeneralValidationHandler,
 } = require("../../middlewares/formValidation/genral_validation");
 
+const { GetProfileAvatar } = require("../../helpers/profileAvatar");
+
 /* app objcet*/
 const router = express.Router();
 
@@ -22,6 +24,7 @@ router.get(
   "/",
   decorateHtmlResponse("General Settings"),
   AuthCheck,
+  GetProfileAvatar,
   GetRenderGeneral
 );
 
@@ -29,6 +32,7 @@ router.post(
   "/",
   decorateHtmlResponse("General Settings"),
   AuthCheck,
+  GetProfileAvatar,
   doGeneralValidation,
   doGeneralValidationHandler,
   PostRenderGeneral

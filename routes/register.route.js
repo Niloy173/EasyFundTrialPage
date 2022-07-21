@@ -158,7 +158,7 @@ router.get("/verify/:userId/:uniqueString", (req, res) => {
 });
 
 router.post("/", decorateHtmlResponse("register"), async (req, res) => {
-  let { username, email, password, c_password } = req.body;
+  let { email, password, c_password } = req.body;
 
   if (email == "" || password == "" || c_password == "") {
     res.render("register", {
@@ -170,10 +170,6 @@ router.post("/", decorateHtmlResponse("register"), async (req, res) => {
 
     //     message : "Invalid email address"
     //    })
-  } else if (username.length > 20) {
-    res.render("register", {
-      message: "username should be Less then 20 character",
-    });
   } else if (password.length < 8) {
     res.render("register", {
       message: "please provide at least 8 character password",
@@ -186,9 +182,7 @@ router.post("/", decorateHtmlResponse("register"), async (req, res) => {
     try {
       const hashedPassword = await bcrypt.hash(password, 10);
 
-      const SingleUser = await User.findOne({
-        $or: [{ username: username }, { email: email }],
-      });
+      const SingleUser = await User.findOne({ email: email });
 
       if (SingleUser) {
         res.render("register", {
@@ -196,7 +190,6 @@ router.post("/", decorateHtmlResponse("register"), async (req, res) => {
         });
       } else {
         const newUser = new User({
-          username: username,
           email: email,
           password: hashedPassword,
           verified: false,
@@ -209,6 +202,7 @@ router.post("/", decorateHtmlResponse("register"), async (req, res) => {
         sendVerificationEmail(result, res);
       }
     } catch (error) {
+      console.log(error);
       res.render("register", {
         message: "unexpected error occured",
       });

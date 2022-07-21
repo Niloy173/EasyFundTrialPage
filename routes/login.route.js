@@ -47,10 +47,9 @@ router.post("/", decorateHtmlResponse("login"), (req, res) => {
 
                   const token = jwt.sign(
                     {
+                      username: data[0].email.split("@")[0],
                       useremail: data[0].email,
                       userId: data[0]._id,
-                      username: data[0].username,
-                      avatar: data[0].profile || null,
                     },
                     process.env.JWT_TOKEN,
                     {

@@ -21,6 +21,8 @@ const {
   UpdateAccountInformation,
 } = require("../../controllers/userend/account");
 
+const { GetProfileAvatar } = require("../../helpers/profileAvatar");
+
 /* app objcet*/
 const router = express.Router();
 
@@ -28,15 +30,16 @@ router.get(
   "/account",
   decorateHtmlResponse("account"),
   AuthCheck,
+  GetProfileAvatar,
   doRenderAccount
 );
 
 router.post(
   "/account",
+  decorateHtmlResponse("account"),
   AuthCheck,
+  GetProfileAvatar,
   avatarUpload,
-  doSettingsValidator,
-  doSettingsValidatorHandler,
   UpdateAccountInformation
 );
 

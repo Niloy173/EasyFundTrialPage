@@ -12,6 +12,8 @@ const {
   PostRenderCover,
 } = require("../../controllers/formController/coverPicture");
 
+const { GetProfileAvatar } = require("../../helpers/profileAvatar");
+
 /* app object */
 const router = express.Router();
 
@@ -19,6 +21,7 @@ router.get(
   "/",
   decorateHtmlResponse("Select a picture"),
   AuthCheck,
+  GetProfileAvatar,
   GetRenderCover
 );
 
@@ -26,6 +29,7 @@ router.post(
   "/",
   decorateHtmlResponse("Select a picture"),
   AuthCheck,
+  GetProfileAvatar,
   avatarUpload,
   PostRenderCover
 );

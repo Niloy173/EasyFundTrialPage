@@ -5,17 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="/css/usernavbar.css" />
   </head>
   <body>
-    <p>This is home page</p>
-    <% if(userInformation && userInformation.useremail) { %>
+    <%- include("../partials/navbar.ejs") %>
 
-    <p>user logged in</p>
+    <script>
+      let nav_menu_item = document.getElementById("nav_menu_item");
+      let show_nav = document.getElementById("show_nav");
+      let SLideInd = 0;
+      let timecount = 0;
+      let i;
 
-    <% }else{ %>
+      show_nav.addEventListener("click", function (e) {
+        timecount += 1;
+        if (timecount % 2 == 0) {
+          nav_menu_item.style.right = "-100%";
+        } else {
+          nav_menu_item.style.right = "0";
+        }
+        console.log(timecount);
+      });
 
-    <p>User is not logged in</p>
-
-    <% } %>
+      function opennav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("mySidenav").style.right = "0";
+      }
+      function closeUserNav() {
+        document.getElementById("mySidenav").style.right = "-250px";
+      }
+    </script>
   </body>
 </html>
