@@ -5,36 +5,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css"
+    />
+
+       <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/css/navbar.css" />
     <link rel="stylesheet" href="/css/usernavbar.css" />
+    <link rel="stylesheet" href="/css/first_container.css" />
+    <link rel="stylesheet" href="/css/card.css" />
+    
   </head>
   <body>
-    <%- include("../partials/navbar.ejs") %>
+    <%- include("../partials/navbar.ejs") %> <%-
+    include("../partials/banner.ejs") %>
 
-    <script>
-      let nav_menu_item = document.getElementById("nav_menu_item");
-      let show_nav = document.getElementById("show_nav");
-      let SLideInd = 0;
-      let timecount = 0;
-      let i;
 
-      show_nav.addEventListener("click", function (e) {
-        timecount += 1;
-        if (timecount % 2 == 0) {
-          nav_menu_item.style.right = "-100%";
-        } else {
-          nav_menu_item.style.right = "0";
-        }
-        console.log(timecount);
-      });
+<% if(Object.keys(ProjectData).length != 0){ %>
 
-      function opennav() {
-        document.getElementById("mySidenav").style.width = "250px";
-        document.getElementById("mySidenav").style.right = "0";
-      }
-      function closeUserNav() {
-        document.getElementById("mySidenav").style.right = "-250px";
-      }
-    </script>
+  <div class="second_container">
+    <p class="head">All Projects</p>
+
+    <div class="card-list">
+      <% ProjectData.forEach(element => { %>
+        <a style="text-decoration: none; color: black;" href="/project/<%= element["_id"] %>">
+      <div class="card-container">
+        <img
+          class="card-cover-img"
+          src="data:image/<%=element.CoverPicture.contentType%>;base64,
+<%=element.CoverPicture.data.toString('base64')%>"
+          alt="Sample"
+        />
+        <p class="subject" style="padding: 10px">
+          <%= element["StoryTitle"] %>
+        </p>
+        <div class="category" style="display: flex; padding-bottom: 10px">
+          <span class="" style="padding-left: 10px; font-weight: bold"
+            >category : </span
+          ><label class="CtypeName" style="padding: 0px 10px"
+            ><%= element["Category"] %></label
+          >
+        </div>
+        <p class="amount_section">
+          Target Amount :৳ <%= element["TargetAmount"] %>
+        </p>
+      </div>
+      </a>
+      <% }); %>
+    </div>
+
+    </div>
+
+<% } %>
+    <script src="/js/navbarSlide.js"></script>
   </body>
 </html>

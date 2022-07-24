@@ -29,7 +29,7 @@ function PostPersonalInfo(req, res, next) {
           },
         });
       } else {
-        console.log(result);
+        //console.log(result);
         res.status(200).json({
           message: "Done",
         });

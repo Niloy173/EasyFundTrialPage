@@ -10,6 +10,7 @@ const { AuthCheck } = require("../../middlewares/common/LoginCheck");
 
 const {
   GetRenderPreview,
+  PostPreviewProject,
 } = require("../../controllers/formController/preview");
 
 /* app object */
@@ -22,6 +23,12 @@ router.get(
   GetRenderPreview
 );
 
+router.post(
+  "/",
+  decorateHtmlResponse("preview story"),
+  AuthCheck,
+  PostPreviewProject
+);
 module.exports = {
   router,
 };

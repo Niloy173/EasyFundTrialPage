@@ -26,7 +26,8 @@ const UserSchema = mongoose.Schema(
     },
 
     profileImage: {
-      type: String,
+      data: Buffer,
+      contentType: String,
     },
 
     university_Name: {

@@ -4,8 +4,8 @@ const { User } = require("../../models/UserSchema");
 
 const doValidatePersonal = [
   check("fullname")
-    .isLength({ min: 1 })
-    .withMessage("fullname is required")
+    .isLength({ min: 1, max: 25 })
+    .withMessage("fullname is required or lengthy")
     .isAlpha("en-US", { ignore: " -" })
     .withMessage("fullname must not contain anything other than alphabet")
     .trim(),

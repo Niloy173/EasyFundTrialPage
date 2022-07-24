@@ -7,6 +7,8 @@
     <title><%= title %></title>
 
     <link rel="stylesheet" href="/css/personal_info.css" />
+    <link rel="stylesheet" href="/css/toastify.css" />
+    <script src="/js/toastify.js"></script>
   </head>
   <body>
     <% if(typeof CurrentUser != 'undefind') { %>
@@ -27,14 +29,22 @@
           <% if(user.fullname) { %>
           <input
             type="text"
+            onkeypress="charCount(this)"
             name="fullname"
+            id="fullname"
             placeholder="Eg : john wick"
             value="<%= user.fullname %>"
           />
 
           <% } else { %>
 
-          <input type="text" name="fullname" placeholder="Eg : john wick" />
+          <input
+            onkeypress="charCount(this)"
+            type="text"
+            name="fullname"
+            id="fullname"
+            placeholder="Eg : john wick"
+          />
           <% } %>
           <p
             style="
@@ -45,7 +55,7 @@
             "
             id="charnum"
           >
-            0/60
+            0/25
           </p>
           <p class="error fullname-error" style="display: none"></p>
         </div>
@@ -167,6 +177,19 @@
     <script>
       const form = document.querySelector("#personal");
 
+      const SuccessFulToast = Toastify({
+        text: "Successfully Updated",
+        duration: 2000,
+      });
+
+      const FailureToast = Toastify({
+        text: "Failed to update data",
+        duration: 2000,
+      });
+
+      document.getElementById("charnum").innerHTML =
+        document.querySelector("input#fullname").value.length + "/" + 30;
+
       try {
         form.onsubmit = async function (e) {
           e.preventDefault();
@@ -204,6 +227,7 @@
           const result = await response.json();
 
           if (result.errors) {
+            FailureToast.showToast();
             Object.keys(result.errors).forEach((fieldName) => {
               form[fieldName].classList.add("error_input");
 
@@ -213,11 +237,24 @@
               errorHolder.style.display = "block";
             });
           } else {
-            window.location.replace("/");
+            SuccessFulToast.showToast();
           }
         };
       } catch (error) {
         console.log(error);
+      }
+
+      function charCount(obj) {
+        let max = 30;
+        let currLength = obj.value.length;
+        document.getElementById("charnum").innerHTML = currLength + "/" + max;
+        if (currLength > max || currLength === 0) {
+          document.getElementById(
+            "charnum"
+          ).innerHTML = `<span style="color : red"> ${currLength} out of ${max} character </span>`;
+        } else {
+          document.getElementById("charnum").innerHTML = currLength + "/" + max;
+        }
       }
 
       function Stay() {

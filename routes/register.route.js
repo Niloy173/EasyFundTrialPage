@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
 const url = require("url");
+const fs = require("fs");
 const {
   decorateHtmlResponse,
 } = require("../middlewares/common/decorateHtmlResponse");
@@ -194,6 +195,12 @@ router.post("/", decorateHtmlResponse("register"), async (req, res) => {
           password: hashedPassword,
           verified: false,
           InformationCollected: false,
+          profileImage: {
+            data: fs.readFileSync(
+              path.join(__dirname + "/../public/images/nophoto.png")
+            ),
+            contentType: "png",
+          },
         });
 
         const result = await newUser.save();

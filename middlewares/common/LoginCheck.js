@@ -38,7 +38,7 @@ const AuthCheck = (req, res, next) => {
 
     next();
   } catch (error) {
-    console.log("Authentication Error");
+    // console.log("Authentication Error");
     res.redirect("/login");
   }
 };

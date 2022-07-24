@@ -23,7 +23,14 @@ async function UpdateAccountInformation(req, res, next) {
       { _id: req.user.userId },
       {
         $set: {
-          profileImage: FullPath,
+          profileImage: {
+            data: fs.readFileSync(
+              path.join(
+                __dirname + "/../" + "/../public/profilePicture/" + FullPath
+              )
+            ),
+            contentType: ext_name.replace(".", ""),
+          },
         },
       },
       { new: true, useFindAndModify: false }

@@ -45,7 +45,7 @@
           You will be able to change it before being supported.
         </p>
       </div>
-      <form method="post" id="form">
+      <form method="post" id="generalForm">
         <div class="project-related-demand">
           <input
             type="number"
@@ -53,6 +53,7 @@
             placeholder="place your amount"
             name="taka"
             autocomplete="off"
+            required
           />
           <p>BDT</p>
         </div>
@@ -69,50 +70,33 @@
             name="date"
             id="p_deadline"
             class="input_box1"
+            required
           />
         </div>
 
         <div class="category_section">
           <p class="headline">Category</p>
-          <input
-            onclick="openCategory()"
-            name="option"
-            type="text"
-            placeholder="Choose your category"
-            id="category_box"
-            class="input_box2"
+
+          <select
             autocomplete="off"
-          /><i
-            onclick="openCategory()"
-            style="text-align: end; cursor: pointer"
-            class="arrow down"
-          ></i>
-        </div>
-
-        <div id="myDropdown" class="dropdown-box">
-          <p onclick="GetValue('Medical')" class="property" href="#">Medical</p>
-          <p onclick="GetValue('Education')" class="property" href="#">
-            Education
-          </p>
-
-          <p onclick="GetValue('Family')" class="property" href="#">Family</p>
-          <p onclick="GetValue('Study Abroad')" class="property" href="#">
-            Study Abroad
-          </p>
-          <p onclick="GetValue('Business')" class="property" href="#">
-            Business
-          </p>
-          <p onclick="GetValue('Disaster')" class="property" href="#">
-            Disaster
-          </p>
-          <p onclick="GetValue('Commuinty')" class="property" href="#">
-            Community
-          </p>
-          <p onclick="GetValue('Others')" class="property" href="#">Others</p>
+            required
+            name="option"
+            class="input_box2"
+            id="li"
+          >
+            <option>Choose your category</option>
+            <option value="Study Abroad">Study Abroad</option>
+            <option value="Medical">Medical</option>
+            <option value="Education">Education</option>
+            <option value="Disaster">Disaster</option>
+            <option value="Others">Others</option></select
+          ><i style="text-align: end; cursor: pointer" class="arrow down"></i>
         </div>
 
         <div class="submit_section">
-          <button type="submit" id="next-page" class="next_page">Next</button>
+          <button disabled type="submit" id="next" class="next_page">
+            Next
+          </button>
         </div>
 
         <p class="terms">
@@ -125,75 +109,10 @@
       </form>
     </div>
 
+    <script src="/js/validation/general.js"></script>
+
     <script>
       sessionStorage.setItem("CurrentURL", window.location.href);
-
-      window.onbeforeunload = (e) => {
-        e.preventDefault();
-      };
-
-      const category_box = document.getElementById("category_box");
-      const dropdown_content = document.getElementById("myDropdown");
-      const amount = document.getElementById("amount");
-      const deadline = document.getElementById("p_deadline");
-      const form = document.querySelector("#form");
-
-      function opennav() {
-        document.getElementById("mySidenav").style.width = "250px";
-        document.getElementById("mySidenav").style.right = "0";
-      }
-      function closeUserNav() {
-        document.getElementById("mySidenav").style.right = "-250px";
-      }
-
-      function fixDate() {
-        let dateobj = new Date();
-        let CurrDate = dateobj.getDate() + 1;
-        let currMonth = dateobj.getMonth() + 1;
-        let currYear = dateobj.getUTCFullYear();
-
-        if (CurrDate < 10) {
-          CurrDate = "0" + CurrDate;
-        }
-
-        if (currMonth < 10) {
-          currMonth = "0" + currMonth;
-        }
-
-        let Today = currYear + "-" + currMonth + "-" + CurrDate;
-        //console.log(Today);
-
-        document.getElementById("p_deadline").setAttribute("min", Today);
-      }
-
-      function openCategory() {
-        document.querySelector(".category_section").style.marginBottom = "0rem";
-        if (dropdown_content.style.display != "block") {
-          dropdown_content.style.display = "block";
-        } else {
-          dropdown_content.style.display = "none";
-          document.querySelector(".category_section").style.marginBottom =
-            "1rem";
-        }
-      }
-
-      function GetValue(val) {
-        category_box.value = val;
-        dropdown_content.style.display = "none";
-        document.querySelector(".category_section").style.marginBottom = "1rem";
-      }
-
-      function OpenAmountModal() {
-        alert("Hello I'm calling");
-      }
-
-      /* event click for closing the error related div */
-      const error_div = document.querySelectorAll("#error-btn");
-      for (let index = 0; index < error_div.length; index++) {
-        error_div[index].addEventListener("click", function () {
-          this.parentNode.remove();
-        });
-      }
     </script>
   </body>
 </html>

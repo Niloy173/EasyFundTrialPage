@@ -136,7 +136,8 @@ body {
   background-color: rgb(87, 235, 185);
   font-size: 1.125rem;
   font-weight: bold;
-  cursor: pointer;
+  cursor: no-drop;
+  opacity: 0.8;
 }
 
 .terms {
@@ -149,27 +150,15 @@ body {
 
 /* dropdown section */
 
-#myDropdown {
-  display: none;
+.option {
+  padding: 10px 12px;
 }
-.dropdown-box {
-  margin: 0 1.56rem;
-  position: absolute;
-  background-color: #f1f1f1;
-  width: 90%;
-  overflow: auto;
-  z-index: 1;
-}
-.dropdown-box p {
-  width: 100%;
-  color: black;
-  padding: 14px 18px;
-  text-decoration: none;
-  display: block;
-}
-.dropdown-box p:hover {
-  background-color: #ddd;
-  cursor: pointer;
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
 }
 /*------------*/
 
@@ -229,4 +218,11 @@ input[type="number"] {
 
 ::placeholder {
   color: #0e0e12;
+}
+
+.error {
+  color: red;
+}
+.error_input {
+  border: 1px solid red;
 }

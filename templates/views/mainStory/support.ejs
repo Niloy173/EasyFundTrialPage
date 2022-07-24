@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/amountSelection.css" />
+    <link rel="stylesheet" href="/css/navbar.css"/>
+    <link rel="stylesheet" href="/css/usernavbar.css"/>
+  </head>
+  <body>
+
+    <%- include("../../partials/navbar.ejs") %>;
+    <form class="amount-selection" method="post">
+
+      <div class="important-msg">
+        <p>The payment information is encrypted by SSL so you can safely pay.</p>
+      </div>
+
+      <div class="selected_project_info">
+
+        <div class="project-cover">
+         <img  src="data:image/<%=CoverPicture.contentType%>;base64,
+<%= CoverPicture.data.toString('base64')%>" alt="project-cover" />
+        </div>
+
+        <div class="project-title">
+          <p><%= StoryTitle %>.</p>
+        </div>
+
+      </div>
+
+      <div class="select">
+        <h3>Select the amount to support (BDT Taka)</h3>
+        <p>※The currency for support amount is in BDT</p>
+
+        <div class="display-amount-btn">
+          <input name="selected-amount" onclick="SelectedAmount(this)" readonly class="amount_t1 amount_value  selected" value="৳ 100"></input>
+          <input  onclick="SelectedAmount(this)" readonly class="amount_t2 amount_value" value="৳ 150"></input>
+        </div>
+
+        <div class="display-amount-btn">
+          <input  onclick="SelectedAmount(this)" readonly class="amount_t1 amount_value" value="৳ 200"></input>
+          <input onclick="SelectedAmount(this)" readonly class="amount_t2 amount_value" value="৳ 500"></input>
+        </div>
+
+        <div class="display-amount-btn">
+          <input onclick="SelectedAmount(this)" readonly class="amount_t1 amount_value" value="৳ 1000"></input>
+          <input onclick="SelectedAmount(this)" readonly class="amount_t2 amount_value" value="৳ 1500"></input>
+        </div>
+
+        <div class="display-amount-btn">
+          <input onclick="SelectedAmount(this)" readonly class="amount_t1 amount_value" value="৳ 2000"></input>
+          <input onclick="SelectedAmount(this)" readonly class="amount_t2 amount_value" value="৳ 2500"></input>
+        </div>
+        <div class="display-amount-btn">
+          <input onclick="SelectedAmount(this)" readonly class="amount_t1 amount_value" value="৳ 3000"></input>
+          <input onclick="SelectedAmount(this)" readonly class="amount_t2 amount_value" value="৳ 3500"></input>
+        </div>
+        <div class="display-amount-btn">
+          <input onclick="SelectedAmount(this)" readonly class="amount_t1 amount_value" value="৳ 4000"></input>
+          <input onclick="SelectedAmount(this)" readonly class="amount_t2 amount_value" value="৳ 5000"></input>
+        </div>
+
+        <div class="display-amount-btn-highest">
+          <input onclick="SelectedAmount(this)"  class="amount_value" readonly value="৳ 1000"></input>
+        </div>
+      </div>
+
+
+      <hr style="margin: 20px 10px;">
+
+      <div class="payment-option">
+
+        <p> Available payment method</p>
+        <div class="payment-operator">
+
+          <img src="/img/bkash.jpg" alt="Bkash"/>
+          <img src="/img/nogod.png" alt="nogod"/>
+          <img src="/img/rocket.jpg" alt="rocket"/>
+        </div>
+
+        <div class="phone-number">
+
+          <p> Phone Number </p>
+          <%if(PhoneNumber){ %>
+
+            <input type="number" onkeyup="CheckMobileNumber(this)" value="<%=PhoneNumber%>" placeholder="<%= PhoneNumber %>"  />
+
+         <% }else{ %>
+
+            <input onkeyup="CheckMobileNumber(this)" type="number" value="" placeholder="enter your phone number"  />
+
+        <%  } %>
+        
+          <span id="error-msg" >please write a valid phone number</span>
+
+        </div>
+      </div>
+
+      .
+
+
+      <div class="small-support-hint">
+
+        <p> When you support </p>
+
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, qui.</li>
+        <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro blanditiis sit a!</li>
+      </div>
+
+      <div class="rules">
+
+        <p>Please read the<a href=""> Terms of Use </a>and <a href="#"">Privacy Policy</a> before supporting.</p>
+        <p>After supporting, it will be considered that you agree with the privacy policy and the terms of use of this service.</p>
+        <p>*As a general rule, refunds cannot be made after payment is completed.</p>
+      </div>
+     <div class="submit-form">
+      <% if(PhoneNumber) { %>
+
+        <button   class="submit" type="submit" id="btn-next"> Done  </button>
+
+      <% }else{ %>
+        <button disabled  class="submit" type="submit" id="btn-next"> Done  </button>
+      <% } %>
+     </div>
+    </form>
+    <script>
+     function SelectedAmount(obj) // obj here is the user click button
+     {
+      /* remove if there is any selector accept the click object */
+      const remove_selector = document.querySelectorAll(".amount_value");
+      remove_selector.forEach((Element)=>{
+        if(Element.classList.contains("selected"))
+        {
+          Element.classList.remove("selected");
+          Element.removeAttribute("name");
+        }
+      });
+       obj.classList.toggle("selected");
+       obj.setAttribute("name","selected-amount")
+           
+       }
+     
+
+       
+       function CheckMobileNumber(number)
+       {
+         const expression =  /^(?:\+?88)?01[3456789]{1}\d{8}$/;
+         if(! number.value.match(expression))
+         {
+            document.getElementById("error-msg").style.display = "block";
+            document.getElementById("btn-next").style.opacity="0.5";
+            document.getElementById("btn-next").style.cursor="no-drop";
+            document.getElementById("btn-next").disabled = true;
+         }else{
+            document.getElementById("btn-next").style.opacity="1";
+            document.getElementById("btn-next").style.cursor="pointer";
+            document.getElementById("error-msg").style.display = "none";
+            document.getElementById("btn-next").disabled = true; // this will be changed
+         }
+       }
+      
+          
+     
+    </script>
+
+    <script src="/js/navbarSlide.js"></script>
+  </body>
+</html>

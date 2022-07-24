@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css"
+  />
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="/css/usernavbar.css" />
+    <link rel="stylesheet" href="/css/discover.css"/>
+    <link rel="stylesheet" href="/css/card.css" />
+    <link rel="stylesheet" href="/css/category.css" />
+  </head>
+  <body>
+
+    <%- include("../partials/navbar.ejs") %>
+    <div class="heading_part_discover">
+      <div class="content_header">
+        <h2>Discover projects</h2>
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet placeat
+          cum adipisci!
+        </p>
+      </div>
+    </div>
+
+    <div class="second_container">
+      <p class="head">All Projects</p>
+
+      <% if (Object.keys(data).length !=0){ %>
+      <div class="card-list">
+        <% data.forEach(element => { %>
+          <a style="text-decoration: none; color: black;" href="/project/<%= element["_id"] %>">
+        <div class="card-container">
+          <img
+            class="card-cover-img"
+            src="data:image/<%=element.CoverPicture.contentType%>;base64,
+<%=element.CoverPicture.data.toString('base64')%>"
+            alt="Sample"
+          />
+          <p class="subject" style="padding: 10px">
+            <%= element["StoryTitle"] %>
+          </p>
+          <div class="category" style="display: flex; padding-bottom: 10px">
+            <span class="" style="padding-left: 10px; font-weight: bold"
+              >category : </span
+            ><label class="CtypeName" style="padding: 0px 10px"
+              ><%= element["Category"] %></label
+            >
+          </div>
+          <p class="amount_section">
+            Target Amount :৳ <%= element["TargetAmount"] %>
+          </p>
+        </div>
+        </a>
+        <% }); %>
+      </div>
+      <% } else { %>  
+        <div class="second_container">
+          <p class="head"> Currently No Project Available</p>
+        </div>
+        
+        <% } %>
+    </div>
+
+    <%- include('../partials/category.ejs') %> 
+
+
+    <div class="Summery">
+      <p class="Ques">Why Don't You Try Easy Fund Now ?</p>
+
+      <div class="Go_to_project">
+        <button class="project_btn">
+          <a href="/general">Create Project</a>
+        </button>
+      </div>
+    </div>
+
+    
+   
+    <script src="/js/navbarSlide.js"></script>
+
+  </body>
+</html>

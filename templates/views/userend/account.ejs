@@ -52,7 +52,8 @@
 
         <img
           id="display_img"
-          src="/profilePicture/<%= user.profileImage%>"
+          src="data:image/<%=profileImage.contentType%>;base64,
+        <%=profileImage.data.toString('base64')%>"
           alt="Avatar"
           class="avatar"
         />

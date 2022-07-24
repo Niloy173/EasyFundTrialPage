@@ -31,6 +31,7 @@ const port_number = process.env.PORT || 5000; // process.env working through .en
 
 /* all route require object goes here */
 const homeRoute = require("./routes/home.route");
+const discoverRoute = require("./routes/discover.route");
 const registerRoute = require("./routes/register.route");
 const loginRoute = require("./routes/login.route");
 const protectedRoute = require("./routes/protected.route");
@@ -41,6 +42,8 @@ const writeStoryRoute = require("./routes/formRoute/writeStory.route");
 const previewRoute = require("./routes/formRoute/preview.route");
 const userAccountRoute = require("./routes/userend/account.route");
 const personalIdentityRoute = require("./routes/userend/personalIdentity.route");
+const mainStoryRoute = require("./routes/mainStory/story.route");
+const BusinessRoute = require("./routes/categories/business.route");
 /*---------------*/
 
 /* middleware */
@@ -75,6 +78,7 @@ app.set("views", templatePath);
 
 /* project related routes */
 app.use("/", homeRoute.router); // localhost : 3000/ => it will fetch from home.route.js and execute home.ejs
+app.use("/discover", discoverRoute.router);
 app.use("/register", registerRoute.router);
 app.use("/login", loginRoute.router);
 app.use("/resetpassword", resetPasswordRoute.router);
@@ -85,7 +89,11 @@ app.use("/story", writeStoryRoute.router);
 app.use("/preview", previewRoute.router);
 app.use("/user", userAccountRoute.router);
 app.use("/personal", personalIdentityRoute.router);
+app.use("/project", mainStoryRoute.router);
 /*-----------------*/
+
+/* category route path goes here */
+app.use("/business", BusinessRoute.router);
 
 // for the error handler
 app.use(NotFoundHandler);

@@ -1,4 +1,4 @@
-<form method="post">
+<form id="PreviewForm" method="post">
   <div class="dashboard">
     <p>Project preview</p>
   </div>
@@ -31,20 +31,12 @@
 
       <div class="story_teller">
         <div class="user_profile">
-          <% if(picture) { %>
           <img
             style="border-radius: 50%; width: 80px; border: 1px solid black"
-            src="/profilePicture/<%= picture %>"
+            src="data:image/<%=picture.contentType%>;base64,
+            <%=picture.data.toString('base64')%>"
             alt="profilePic"
           />
-          <% } else { %>
-
-          <img
-            style="border-radius: 50%; width: 80px; border: 1px solid black"
-            src="/img/nophoto.png"
-            alt="profilePic"
-          />
-          <% } %>
         </div>
 
         <div class="user_identity">
@@ -56,6 +48,19 @@
       <textarea readonly id="mainStory" class="main_story">
 <%= MainStory %></textarea
       >
+
+      <% if(AttachmentLength) { %> <% Attachment.forEach((file) => { %>
+
+      <div class="gallery">
+        <Img
+          src="/projectAttachment/<%= file %>"
+          alt="<%= file %>"
+          width="600"
+          height="500"
+        />
+      </div>
+
+      <% }) %> <% } %>
     </div>
 
     <div class="user_story_right_side">
