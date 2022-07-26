@@ -3,7 +3,6 @@ const path = require("path");
 const lodash = require("lodash");
 const { User } = require("../../models/UserSchema");
 const { Project } = require("../../models/ProjectSchema");
-const { Support } = require("../../models/SupporterDB");
 
 function ReadDataAttachment() {
   let attach = [];
@@ -81,6 +80,7 @@ async function PostPreviewProject(req, res, next) {
     ProjectInfo.Category = req.query.Category;
     ProjectInfo.TargetAmount = req.query.Amount;
     ProjectInfo.CurrentAmount = 0;
+    ProjectInfo.Supporter = [];
     ProjectInfo.Validity = req.query.Validity;
     ProjectInfo.StoryTitle = req.query.StoryTitle;
     ProjectInfo.MainStory = req.query.MainStory;

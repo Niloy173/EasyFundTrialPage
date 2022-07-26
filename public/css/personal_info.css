@@ -35,10 +35,15 @@
   --red: indianred;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
-  margin: 0;
 }
 
 span {
@@ -53,20 +58,27 @@ span {
 }
 .personal-information .head {
   font-size: var(--mb-3);
+  margin: var(--mb-3) auto;
 }
 
 input {
-  width: 93%;
+  width: 100%;
   padding: 0.675rem 1rem;
   font-size: 1rem;
   border: 1px solid black;
-  cursor: pointer;
 }
 
 .category {
   font-size: 1.2rem;
+  margin: 10px 0;
 }
 
+#submit {
+  cursor: pointer;
+}
+#cancel {
+  cursor: pointer;
+}
 .phone-div input {
   margin-top: 12px;
 }

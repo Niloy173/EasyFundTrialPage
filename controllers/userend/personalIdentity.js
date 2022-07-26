@@ -1,13 +1,23 @@
 const e = require("express");
 const { User } = require("../../models/UserSchema");
+const createError = require("http-errors");
 
 async function GetRenderPersonalInfo(req, res, next) {
-  // find the current user information
-  const CurrentUser = await User.find({ _id: req.user.userId });
-  // console.log(CurrentUser);
-  res.render("userend/personal_info", {
-    CurrentUser,
-  });
+  try {
+    if (req.user) {
+      // find the current user information
+      const CurrentUser = await User.find({ _id: req.user.userId });
+      // console.log(CurrentUser);
+      res.render("userend/personal_info", {
+        CurrentUser,
+      });
+    } else {
+      res.redirect("/login");
+    }
+  } catch (error) {
+    console.log(error);
+    throw createError(error);
+  }
 }
 
 function PostPersonalInfo(req, res, next) {

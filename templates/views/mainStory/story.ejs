@@ -7,9 +7,9 @@
     <title><%= title %></title>
 
     <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css"
-  />
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css"
+    />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -66,9 +66,9 @@
               margin: 0 10px;
             "
             src="data:image/<%=SupporterProfile[i].profileImage.contentType%>;base64,
-        <%=SupporterProfile[0].profileImage.data.toString('base64')%>"
+        <%=SupporterProfile[i].profileImage.data.toString('base64')%>"
             alt="supporter-profilePic"
-            title="<%= SupporterProfile[i].fullname %>"
+            title="<%= SupporterProfile[i].user_name %>"
           />
           </a>
             <% } %>
@@ -105,8 +105,8 @@
             />
           </div>
           <div class="user_identity">
-            <p class="username"><%= username %></p>
-            <p class="identity"><%= university %></p>
+            <p class="username"><%= Owner_name %></p>
+            <p class="identity"><%= Owner_university %></p>
           </div>
         </div>
         <textarea
@@ -164,7 +164,7 @@
             <p>
               <a
                 style="text-decoration: none; color: aliceblue"
-                href="/project/<%= element['_id'] %>/payment"
+                href="/project/<%= element['_id'] %>/payment-information"
               >
                 ৳ <%= OtherUser %>
               </a>
@@ -249,7 +249,7 @@
 
       const target_amount = parseInt(document.getElementById("goal").innerHTML);
       //  console.log(target_amount)// 1100
-      const curr_amount = document.getElementById("curr_amount").innerHTML;
+      const curr_amount = parseInt(document.getElementById("curr_amount").innerHTML);
       //  console.log(curr_amount) // 560
 
       const Getting_percentage = (curr_amount / target_amount) * 100;

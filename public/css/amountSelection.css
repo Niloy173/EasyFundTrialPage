@@ -1,10 +1,3 @@
-input {
-  background: none;
-  border: 1px groove aqua;
-  text-align: center;
-  cursor: pointer;
-}
-
 .amount-selection {
   position: relative;
   width: 700px;
@@ -62,21 +55,6 @@ input {
   color: rgb(139, 129, 129);
   padding-bottom: 15px;
 }
-.select .display-amount-btn {
-  display: flex;
-  justify-content: space-evenly;
-  margin: 12px 0;
-}
-.display-amount-btn .amount_t1 {
-  flex: 30%;
-  padding: 10px 12px;
-  margin: 0 10px;
-}
-.display-amount-btn .amount_t2 {
-  flex: 30%;
-  padding: 10px 12px;
-  margin: 0 10px;
-}
 
 .select .display-amount-btn-highest {
   display: flex;
@@ -109,31 +87,6 @@ input {
   border: 1px solid #e0e0e0;
 }
 
-.phone-number {
-  padding-top: 10px;
-}
-
-.phone-number p {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.phone-number input {
-  width: 100%;
-  padding: 12px 14px;
-  font-size: 17px;
-  text-align: left;
-  cursor: default;
-}
-
-input[type="number"] {
-  -webkit-appearance: none;
-}
-.phone-number span {
-  margin: 5px 0 0 0;
-  color: red;
-  display: none;
-}
 .amount-selection .small-support-hint {
   margin: 10px 10px;
   background-color: #f2f2f2;
@@ -173,8 +126,7 @@ input[type="number"] {
   width: 100%;
   font-size: 17px;
   border: none;
-  cursor: no-drop;
-  opacity: 0.5;
+  cursor: pointer;
 }
 
 /* Chrome, Safari, Edge, Opera */

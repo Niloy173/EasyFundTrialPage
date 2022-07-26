@@ -7,11 +7,14 @@
     <title><%= title %></title>
 
     <link rel="stylesheet" href="/css/personal_info.css" />
+    <link rel="stylesheet" href="/css/usernavbar.css" />
     <link rel="stylesheet" href="/css/toastify.css" />
+
     <script src="/js/toastify.js"></script>
   </head>
   <body>
-    <% if(typeof CurrentUser != 'undefind') { %>
+    <%- include("../../partials/navbar.ejs") %> <% if(typeof CurrentUser !=
+    'undefind') { %>
     <div class="personal-information">
       <h3 class="head">Personal information</h3>
       <span>
@@ -166,13 +169,15 @@
         <p class="error common-error" style="display: none"></p>
 
         <div class="submit-option">
-          <input type="submit" value="submit" />
-          <input onclick="Stay()" type="button" value="cancel" />
+          <input id="submit" type="submit" value="submit" />
+          <input id="cancel" onclick="Stay()" type="button" value="cancel" />
         </div>
       </form>
     </div>
 
     <% } %>
+
+    <script src="/js/navbarSlide.js"></script>
 
     <script>
       const form = document.querySelector("#personal");

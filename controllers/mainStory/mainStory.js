@@ -1,6 +1,5 @@
 const { User } = require("../../models/UserSchema");
 const { Project } = require("../../models/ProjectSchema");
-const { Support } = require("../../models/SupporterDB");
 
 async function GetTheMainStory(req, res, next) {
   try {
@@ -11,25 +10,24 @@ async function GetTheMainStory(req, res, next) {
     // destructure Owner information
     const ProjectInformation = await Project.find({ _id: projectId });
 
-    // find the corresponding support info
-    const SupportInformation = await Support.find({ _id: projectId });
-
     const [OwnerId] = ProjectInformation.map((item) => item.OwnerId);
     const [Attachments] = ProjectInformation.map((item) => item.Attachments);
-
-    const [Supporter] = SupportInformation.map((item) => item.Supporter);
+    const [Supporter] = ProjectInformation.map((item) => item.Supporter);
     // console.log(Supporter);
+
     const SupporterProfile = [];
     if (Supporter) {
       // traverse each object
-      Supporter.forEach((obj) => {
-        const supportId = obj.id;
+      Supporter.forEach(async (id) => {
+        const supportId = id;
 
         // get the profile from user database;
-        const CurrentUserProfile = User.findOne({ _id: supportId });
-        const { profileImage, fullname } = CurrentUserProfile;
+        const CurrentUserProfile = await User.find({ _id: supportId });
 
-        SupporterProfile.push({ profileImage, fullname });
+        const profileImage = CurrentUserProfile[0].profileImage;
+        const user_name = CurrentUserProfile[0].fullname || "";
+
+        SupporterProfile.push({ profileImage, user_name });
       });
     }
 
@@ -51,15 +49,15 @@ async function GetTheMainStory(req, res, next) {
     }
 
     // project url
-    let RequestedUrl = "http://localhost:3000" + req.originalUrl;
+    let RequestedUrl = `${process.env.APP_URL}` + req.originalUrl;
 
     res.status(200).render("mainStory/story", {
       ProjectInformation,
       OtherUser,
       RequestedUrl,
-      username: OwnerInformation[0].fullname,
+      Owner_name: OwnerInformation[0].fullname,
       OwnerAvatar: OwnerInformation[0].profileImage,
-      university: OwnerInformation[0].university_Name,
+      Owner_university: OwnerInformation[0].university_Name,
       AttachmentLength: Attachments.length,
       SupporterLength: SupporterProfile.length,
       SupporterProfile,

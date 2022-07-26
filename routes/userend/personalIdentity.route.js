@@ -6,7 +6,12 @@ const express = require("express");
 const {
   decorateHtmlResponse,
 } = require("../../middlewares/common/decorateHtmlResponse");
-const { AuthCheck } = require("../../middlewares/common/LoginCheck");
+const {
+  DecodeInformation,
+  AuthCheck,
+} = require("../../middlewares/common/LoginCheck");
+
+const { GetProfileAvatar } = require("../../helpers/profileAvatar");
 
 const {
   doValidatePersonal,
@@ -24,7 +29,8 @@ const router = express.Router();
 router.get(
   "/information",
   decorateHtmlResponse("personal"),
-  AuthCheck,
+  DecodeInformation,
+  GetProfileAvatar,
   GetRenderPersonalInfo
 );
 

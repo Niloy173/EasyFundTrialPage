@@ -50,6 +50,11 @@ const ProjectSchema = mongoose.Schema(
       },
     ],
 
+    Supporter: {
+      type: Array,
+      default: [],
+    },
+
     CreationDate: {
       type: Date,
       required: true,
