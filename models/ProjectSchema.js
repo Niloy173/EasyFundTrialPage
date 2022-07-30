@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const ProjectSchema = mongoose.Schema(
   {
     OwnerId: {
-      id: mongoose.Types.ObjectId,
+      type: mongoose.Types.ObjectId,
     },
 
     TargetAmount: {
