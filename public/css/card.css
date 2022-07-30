@@ -3,13 +3,13 @@ body {
 }
 
 .card-list {
-  width: 85%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   margin: 30px auto;
   overflow: hidden;
-  justify-content: center;
+  justify-content: space-between;
   font: "Poppins", sans-serif;
 }
 
@@ -30,7 +30,7 @@ body {
 }
 
 .card-container {
-  width: 250px;
+  width: 260px;
   display: flex;
   flex-direction: column;
   background-color: rgb(255, 255, 255);
@@ -49,7 +49,8 @@ body {
 }
 
 .card-container img {
-  width: 100%;
+  height: 200px;
+  width: auto;
   object-fit: fill;
 }
 
@@ -59,8 +60,7 @@ body {
   margin: 10px auto;
 }
 .second_container {
-  width: 1200px;
-  margin: 40px auto;
+  padding: 0 100px;
 }
 
 .second_container .head {
