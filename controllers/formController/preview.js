@@ -48,11 +48,7 @@ async function GetRenderPreview(req, res, next) {
 
 async function PostPreviewProject(req, res, next) {
   try {
-    const CurrentUser = await User.find({ _id: req.user.userId });
-    // console.log(CurrentUser[0]);
-
     const ProjectInfo = {};
-    const OwnerInfo = {};
     const Attachments = [];
     const attachments = ReadDataAttachment();
     const attachmentLength = attachments.length;
@@ -71,10 +67,7 @@ async function PostPreviewProject(req, res, next) {
     }
     // console.log(Attachments);
 
-    // User Information
-    OwnerInfo.id = CurrentUser[0]._id;
-
-    ProjectInfo.OwnerId = OwnerInfo;
+    ProjectInfo.OwnerId = req.user.userId; // coming directly from token
     // project information
     ProjectInfo.CreationDate = new Date().toLocaleDateString();
     ProjectInfo.Category = req.query.Category;
