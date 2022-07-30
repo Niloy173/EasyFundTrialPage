@@ -32,7 +32,7 @@ async function GetTheMainStory(req, res, next) {
     }
 
     //find out Owner information
-    const OwnerInformation = await User.find({ _id: OwnerId.id });
+    const OwnerInformation = await User.find({ _id: OwnerId });
     // console.log(OwnerInformation);
 
     // for the support Button show or not
@@ -40,7 +40,7 @@ async function GetTheMainStory(req, res, next) {
     let OtherUser;
     if (req.user) {
       // any user logged in
-      if (req.user.userId != OwnerId.id) {
+      if (req.user.userId != OwnerId) {
         // support section enabled
         OtherUser = "Support";
       }
