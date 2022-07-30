@@ -92,9 +92,7 @@ async function PostPreviewProject(req, res, next) {
 
     newProjectDocument.save();
 
-    setTimeout(() => {
-      res.status(200).redirect("/");
-    }, 1000);
+    res.status(200).redirect("/");
   } catch (error) {
     console.log(error);
     res.redirect("/general");
